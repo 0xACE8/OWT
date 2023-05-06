@@ -54,4 +54,4 @@ sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
-wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OWT/main/banner -O package/base-files/files/etc/banner
