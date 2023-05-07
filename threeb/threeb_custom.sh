@@ -18,8 +18,8 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 
 #5. Change luci list name
 #sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argon-config/po/zh-cn/argon-config.po
-sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/small8/luci-app-argonne-config/po/zh-cn/argonne-config.po
-mv feeds/small8/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.svg feeds/small8/luci-theme-argonne/htdocs/luci-static/argonne/img/argonne.svg
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/0xACE8/luci-app-argonne-config/po/zh-cn/argonne-config.po
+mv feeds/0xACE8/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.svg feeds/0xACE8/luci-theme-argonne/htdocs/luci-static/argonne/img/argonne.svg
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #6. Change dns server
@@ -54,4 +54,4 @@ sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
-wget https://raw.githubusercontent.com/0xACE8/OWT/threeb/banner -O package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/banner -O package/base-files/files/etc/banner
