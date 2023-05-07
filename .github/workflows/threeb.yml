@@ -4,11 +4,11 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
+# https://github.com/P3TERX/
+# Description: Build using GitHub Actions
 #
 
-name: Build OpenWrt Raspberry Pi 3B
+name: Build OWT threeb very old Atcions
 
 on:
   repository_dispatch:
