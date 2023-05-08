@@ -5,4 +5,4 @@
 #echo 'src-git roacn https://github.com/roacn/openwrt-packages' >>feeds.conf.default
 
 # Add COMFAST CF-812AC (rtl8812bu) 
-git clone https://github.com/0xACE8/rtl8812bu.git package/kernel/rtl8812bu
+#git clone https://github.com/0xACE8/rtl8812bu.git package/kernel/rtl8812bu
