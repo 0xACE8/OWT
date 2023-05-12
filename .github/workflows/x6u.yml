@@ -8,7 +8,7 @@
 # Description: Build using GitHub Actions
 #
 
-name: Build OWT threeb very old Atcions
+name: Build OWT x6u very old Atcions
 
 on:
   repository_dispatch:
