@@ -25,7 +25,7 @@ env:
   FEEDS_CONF: reg/reg.c0nf.d3f4ult
   CONFIG_FILE: reg/reg.conf
   DIY_P1_SH: reg/reg.sh
-  DIY_P2_SH: reb/reg_customize.sh
+  DIY_P2_SH: reg/reg_customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Taipei
