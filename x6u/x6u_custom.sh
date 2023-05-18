@@ -36,16 +36,16 @@ sed -i "13i uci set network.lan6.peerdns='0'" package/lean/default-settings/file
 sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/zzz-default-settings
 
 #7. Update kcptun
-rm -rf package/net/kcptun
-git clone https://github.com/0xACE8/kcptun.git package/net/kcptun
+rm -rf feeds/packages/net/kcptun
+git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
 
 #8. Update udpspeeder
-rm -rf package/net/udpspeeder
-git clone https://github.com/0xACE8/udpspeeder.git package/net/udpspeeder
+rm -rf feeds/packages/net/udpspeeder
+git clone https://github.com/0xACE8/udpspeeder.git feeds/packages/net/udpspeeder
 
 #9. Update dnscrypt-proxy2
-rm -rf packages/net/dnscrypt-proxy2
-git clone https://github.com/0xACE8/dnscrypt-proxy2.git packages/net/dnscrypt-proxy2
+rm -rf feeds/packages/net/dnscrypt-proxy2
+git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscrypt-proxy2
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
