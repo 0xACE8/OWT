@@ -14,7 +14,13 @@ sed -i 's/ImmortalWrt/Xiaomi R3G/g' package/base-files/files/bin/config_generate
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
 
 #4. Modify builder
-#sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i 's/immortalwrt_luci /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g' /etc/opkg/distfeeds.conf
+sed -i '/DISTRIB_RELEAS/d' /etc/openwrt_release
+echo "DISTRIB_RELEASE='SNAPSHOT'" >> /etc/openwrt_release
+sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+echo "DISTRIB_REVISION='0xACE7-18.06'" >> /etc/openwrt_release
+sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='Xiaomi R3G '" >> /etc/openwrt_release
 
 #5. Change language=auto to zh_cn
 sed -i 's/lang=auto/lang=zh_cn/g' package/emortal/default-settings/files/99-default-settings
