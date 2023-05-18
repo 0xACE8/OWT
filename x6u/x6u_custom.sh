@@ -17,9 +17,7 @@ sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 #5. Change luci list name
-#sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argon-config/po/zh-cn/argon-config.po
-sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argonne-config.po
-#mv feeds/small/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.svg feeds/0xACE8/luci-theme-argonne/htdocs/luci-static/argonne/img/argonne.svg
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #6. Change dns server
@@ -37,20 +35,17 @@ sed -i "12i uci set network.lan6.reqprefix='auto'" package/lean/default-settings
 sed -i "13i uci set network.lan6.peerdns='0'" package/lean/default-settings/files/zzz-default-settings
 sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/zzz-default-settings
 
-#7. fix po2lmo： command not found
-#sed -i "/po2lmo /d" package/*/custom/*/Makefile
-#sed -i "/luci\/i18n/d" package/*/custom/*/Makefile
-#sed -i "/*\.po/d" package/*/custom/*/Makefile
-#sed -i "/foreach pkg/d" feeds/luci/luci.mk;
-#sed -i '$a $(foreach pkg,$(LUCI_BUILD_PACKAGES),$(eval $(call BuildPackage,$(pkg))))' package/*/*/luci-*/Makefile
-#sed -i 's/$(INCLUDE_DIR)\/package.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/*/*/luci-app-*/Makefile
+#7. Update kcptun
+rm -rf package/net/kcptun
+git clone https://github.com/0xACE8/kcptun.git package/net/kcptun
 
-#8. Update dnscrypt-proxy2 2.0.45 to 2.1.1
-#rm -rf feeds/packages/net/dnscrypt-proxy2
-#git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/
+#8. Update udpspeeder
+rm -rf package/net/udpspeeder
+git clone https://github.com/0xACE8/udpspeeder.git package/net/udpspeeder
 
-#8. Update hysteria 0.9.6 to 0.9.7
-#sed -i 's/"0.9.6"/"0.9.7"/g' feeds/passwall/hysteria/Makefile
+#9. Update dnscrypt-proxy2
+rm -rf packages/net/dnscrypt-proxy2
+git clone https://github.com/0xACE8/dnscrypt-proxy2.git packages/net/dnscrypt-proxy2
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
