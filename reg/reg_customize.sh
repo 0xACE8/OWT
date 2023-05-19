@@ -28,6 +28,7 @@ echo "DISTRIB_DESCRIPTION='Xiaomi R3G '" >> /etc/openwrt_release
 sed -i 's/lang=auto/lang=zh_cn/g' package/emortal/default-settings/files/99-default-settings
 
 #6. Boost UDP
+echo '# optimize udp' >>package/base-files/files/etc/sysctl.d/10-default.conf
 echo 'net.core.rmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
 echo 'net.core.rmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
 echo 'net.core.wmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
@@ -41,8 +42,9 @@ sed -i 's/ntp.tencent.com/edu.ntp.org.cn/g' package/emortal/default-settings/fil
 sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 
 #8. Change luci list name
-sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
-sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
+#sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
+#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #9. Change to my banner
 sudo rm package/emortal/default-settings/files/openwrt_banner
