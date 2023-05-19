@@ -45,3 +45,12 @@ sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luc
 #9. Change to my banner
 sudo rm package/emortal/default-settings/files/openwrt_banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emortal/default-settings/files/openwrt_banner
+
+#10. Change wifi ssid: Fuck_Xiaomi
+#sed -i 's/ssid=OpenWrt/ssid=openwrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+#11. Change wifi key: Fuck_Xiaomi
+#sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#使用sed 在第四行后添加新字
+#sed -e 120a\set wireless.default_radio${devidx}.key=XiaoWanSM package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/set wireless.default_radio${devidx}.encryption=psk2/a\set wireless.default_radio${devidx}.key=password' package/kernel/mac80211/files/lib/wifi/mac80211.sh
