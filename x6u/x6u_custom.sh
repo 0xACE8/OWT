@@ -8,7 +8,7 @@
 sed -i 's/192.168.1.1/192.168.177.78/g' package/base-files/files/bin/config_generate
 
 #2. Modify Hostname
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenwrtBP'' package/lean/default-settings/files/zzz-default-settings
+sed -i '/uci commit system/i\uci set system.@system[0].hostname='Openwrt_Bypass'' package/lean/default-settings/files/zzz-default-settings
 
 #3. Password is ********
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
@@ -35,6 +35,14 @@ sed -i "12i uci set network.lan6.reqprefix='auto'" package/lean/default-settings
 sed -i "13i uci set network.lan6.peerdns='0'" package/lean/default-settings/files/zzz-default-settings
 sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/zzz-default-settings
 
+#6. Boost UDP
+echo '# optimize udp' >>package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.rmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.rmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.wmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
+
 #7. Update kcptun
 rm -rf feeds/packages/net/kcptun
 git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
@@ -50,3 +58,4 @@ git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscr
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/x6u/banner -O package/base-files/files/etc/banner
+
