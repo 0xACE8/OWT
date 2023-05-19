@@ -6,7 +6,8 @@
 #=================================================
 #1. Modify default IP
 sed -i 's/192.168.1.1/192.168.177.1/g' package/base-files/files/bin/config_generate
-#sed -i 's/ip6assign=\'\60\'\/ip6assign=\'\64\'\/g' package/base-files/files/bin/config_generate
+sed -i "s/ip6assign='60'/ip6assign='64'/g" package/base-files/files/bin/config_generate
+sed -i 's/2:-dhcp/2:-pppoe/g' package/base-files/files/lib/functions/uci-defaults.sh
 
 #2. Modify Hostname
 sed -i 's/ImmortalWrt/Xiaomi_R3G/g' package/base-files/files/bin/config_generate
