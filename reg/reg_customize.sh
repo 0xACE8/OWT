@@ -8,7 +8,7 @@
 sed -i 's/192.168.1.1/192.168.177.1/g' package/base-files/files/bin/config_generate
 
 #2. Modify Hostname
-sed -i 's/ImmortalWrt/Xiaomi R3G/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/Xiaomi_R3G/g' package/base-files/files/bin/config_generate
 
 #3. Modify Password to ********
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
