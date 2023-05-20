@@ -34,6 +34,7 @@ sed -i "11i uci set network.lan6.reqaddress='try'" package/lean/default-settings
 sed -i "12i uci set network.lan6.reqprefix='auto'" package/lean/default-settings/files/zzz-default-settings
 sed -i "13i uci set network.lan6.peerdns='0'" package/lean/default-settings/files/zzz-default-settings
 sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/zzz-default-settings
+#sed -i '/revert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
 
 #6. Boost UDP
 echo '# optimize udp' >>package/base-files/files/etc/sysctl.d/10-default.conf
