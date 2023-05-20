@@ -28,7 +28,7 @@ env:
   DIY_P2_SH: threeb/threeb_custom.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  TZ: Asia/Taipei
+  TZ: America/Los Angeles
 
 jobs:
   build:
