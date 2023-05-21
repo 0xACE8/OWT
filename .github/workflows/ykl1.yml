@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/padavanonly/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: reg/reg.c0nf.d3f4ult
-  CONFIG_FILE: yk/yk.conf
+  CONFIG_FILE: ttc/ykl1.conf
   DIY_P1_SH: reg/reg.sh
-  DIY_P2_SH: yk/yk_customize.sh
+  DIY_P2_SH: ttc/ykl1_customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Taipei
