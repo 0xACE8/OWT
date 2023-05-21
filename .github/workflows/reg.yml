@@ -28,7 +28,7 @@ env:
   DIY_P2_SH: reg/reg_customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  TZ: "America/Los_Angeles"
+  TZ: Asia/Taipei
 
 jobs:
   build:
