@@ -28,7 +28,7 @@ env:
   DIY_P2_SH: x6u/x6u_custom.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  TZ: Asia/Taipei
+  TZ: "America/Los_Angeles"
 
 jobs:
   build:
