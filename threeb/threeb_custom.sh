@@ -8,7 +8,7 @@
 sed -i 's/192.168.1.1/192.168.177.99/g' package/base-files/files/bin/config_generate
 
 #2. Modify Hostname
-sed -i "/uci commit system/i\uci set system.@system[0].hostname='RaspberryPi 3B'" package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit system/i\uci set system.@system[0].hostname='RaspberryPi_3B'" package/lean/default-settings/files/zzz-default-settings
 
 #3. Password is ********
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
