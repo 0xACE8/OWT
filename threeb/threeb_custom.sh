@@ -20,6 +20,9 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://elinux.org/images/c/cb/Raspberry_Pi_Logo.svg"
+
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
 sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/files/zzz-default-settings
