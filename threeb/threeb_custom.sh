@@ -21,7 +21,7 @@ sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-c
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://elinux.org/images/c/cb/Raspberry_Pi_Logo.svg"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone.svg"
 
 sed -i 's/"#5e72e4"/"#bc1142"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/"#483d8b"/"#bc1142"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
