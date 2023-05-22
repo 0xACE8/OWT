@@ -23,8 +23,8 @@ sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luc
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone.svg"
 
-sed -i 's/"#5e72e4"/"#bc1142"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/"#483d8b"/"#bc1142"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"#5e72e4"/"#bc1142"/g' feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"#483d8b"/"#bc1142"/g' feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
