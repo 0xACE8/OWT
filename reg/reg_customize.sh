@@ -52,8 +52,14 @@ sed -i 's/"#483d8b"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/
 sudo rm package/emortal/default-settings/files/openwrt_banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emortal/default-settings/files/openwrt_banner
 
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
+wget --no-check-certificate -r -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/"
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone.svg"
+wget --no-check-certificate -r -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/argone.svg"
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+wget --no-check-certificate -r -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/bg1.jpg"
 
 #10. Change wifi ssid: Fuck_Xiaomi
 #sed -i 's/ssid=OpenWrt/ssid=openwrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
