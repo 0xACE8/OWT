@@ -16,13 +16,13 @@ sed -i 's/ImmortalWrt/Xiaomi_R3G/g' package/base-files/files/bin/config_generate
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
 
 #4. Modify builder
-sed -i 's/immortalwrt_luci /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g' /etc/opkg/distfeeds.conf
-sed -i '/DISTRIB_RELEAS/d' /etc/openwrt_release
-echo "DISTRIB_RELEASE='SNAPSHOT'" >> /etc/openwrt_release
-sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-echo "DISTRIB_REVISION='0xACE7-18.06'" >> /etc/openwrt_release
-sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='Xiaomi R3G '" >> /etc/openwrt_release
+#sed -i 's/immortalwrt_luci /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g' /etc/opkg/distfeeds.conf
+#sed -i '/DISTRIB_RELEAS/d' /etc/openwrt_release
+#echo "DISTRIB_RELEASE='SNAPSHOT'" >> /etc/openwrt_release
+#sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+#echo "DISTRIB_REVISION='0xACE7-18.06'" >> /etc/openwrt_release
+#sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+#echo "DISTRIB_DESCRIPTION='Xiaomi R3G '" >> /etc/openwrt_release
 
 #5. Change language=auto to zh_cn
 sed -i 's/lang=auto/lang=zh_cn/g' package/emortal/default-settings/files/99-default-settings
@@ -54,12 +54,19 @@ wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emo
 
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
-wget --no-check-certificate -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ -r https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -r -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/argone.svg"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/argone.svg"
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-wget --no-check-certificate -r -np -nH -L -P feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/bg1.jpg"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/bg1.jpg"
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/android-icon-192x192.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-60x60.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-72x72.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-144x144.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-16x16.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-32x32.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-96x96.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/ms-icon-144x144.png"
 
 #10. Change wifi ssid: Fuck_Xiaomi
 #sed -i 's/ssid=OpenWrt/ssid=openwrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
