@@ -20,11 +20,24 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone.svg"
-
 sed -i 's/"#5e72e4"/"#bc1142"/g' feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/"#483d8b"/"#bc1142"/g' feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+
+rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/favicon.ico"
+rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/argone.svg"
+rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/bg1.jpg"
+rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/android-icon-192x192.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-60x60.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-72x72.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-144x144.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-16x16.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-32x32.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-96x96.png"
+wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/ms-icon-144x144.png"
 
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
@@ -66,18 +79,3 @@ git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscr
 sudo rm package/base-files/files/etc/banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/banner -O package/base-files/files/etc/banner
 
-rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/favicon.ico"
-rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/argone.svg"
-rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/bg1.jpg"
-rm -rf feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/android-icon-192x192.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-60x60.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-72x72.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-144x144.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-16x16.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-32x32.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-96x96.png"
-wget --no-check-certificate -O feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/ms-icon-144x144.png"
