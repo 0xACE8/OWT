@@ -21,7 +21,7 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: mt7620a/feeds.conf.default
   CONFIG_FILE: mt7620a/mini.conf
   DIY_P1_SH: mt7620a/f33ds.sh
