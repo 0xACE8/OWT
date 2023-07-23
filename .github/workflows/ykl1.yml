@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/padavanonly/immortalwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: reg/reg.c0nf.d3f4ult
-  CONFIG_FILE: ttc/ykl1.conf
-  DIY_P1_SH: reg/reg.sh
-  DIY_P2_SH: ttc/ykl1_customize.sh
+  FEEDS_CONF: mt7620a/feeds.conf.default
+  CONFIG_FILE: mt7620a/ykl1.conf
+  DIY_P1_SH: mt7620a/f33ds.sh
+  DIY_P2_SH: mt7620a/mini_customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Taipei
