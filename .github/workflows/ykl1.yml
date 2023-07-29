@@ -20,8 +20,10 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  #REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
+  #REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: mt7620a/feeds.conf.default
   CONFIG_FILE: mt7620a/ykl1.conf
   DIY_P1_SH: mt7620a/f33ds.sh
