@@ -48,6 +48,11 @@ sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luc
 #sed -i 's/"#5e72e4"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 #sed -i 's/"#483d8b"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 
+rm -f feeds/packages/libs/gnutls
+rm -f package/feeds/packages/gnutls
+get clone https://github.com/0xACE8/gnutls feeds/packages/libs/gnutls
+get clone https://github.com/0xACE8/gnutls package/feeds/packages/gnutls
+
 #9. Change to my banner and argone logo to mi logo
 #sudo rm package/emortal/default-settings/files/openwrt_banner
 #wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emortal/default-settings/files/openwrt_banner
