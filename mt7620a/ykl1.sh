@@ -43,7 +43,8 @@ sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/fil
 
 #8. Change luci list name and xiaomi logo color
 #sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
-#sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 #sed -i 's/"#5e72e4"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 #sed -i 's/"#483d8b"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
