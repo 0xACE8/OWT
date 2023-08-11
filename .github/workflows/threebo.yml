@@ -20,11 +20,11 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   # REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: openwrt-23.05
+  REPO_BRANCH: master
   FEEDS_CONF: threeb/feeds.conf.default
-  CONFIG_FILE: threeb/threeb.config
+  CONFIG_FILE: threeb/threeb+.config
   DIY_P1_SH: threeb/f33ds.sh
   DIY_P2_SH: threeb/threeb_custom.sh
   UPLOAD_BIN_DIR: false
