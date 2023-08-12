@@ -3,3 +3,7 @@ sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 sed -i '$a src-git ace https://github.com/0xACE8/ace-packages' feeds.conf.default
 sed -i '$a src-git sirpdboy https://github.com/sirpdboy/netspeedtest' feeds.conf.default
+
+rm -rf package/feeds/luci/luci-app-kcptun
+rm -rf package/feeds/luci/luci-app-speederv2
+rm -rf package/feeds/luci/luci-app-udp2raw
