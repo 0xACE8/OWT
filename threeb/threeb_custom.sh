@@ -42,6 +42,11 @@ wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/ar
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-96x96.png"
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/ms-icon-144x144.png"
 
+
+rm -rf package/feeds/luci/luci-app-kcptun
+rm -rf package/feeds/luci/luci-app-speederv2
+rm -rf package/feeds/luci/luci-app-udp2raw
+
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
 sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/files/zzz-default-settings
