@@ -11,6 +11,11 @@ sed -i "s/ip6assign='60'/ip6assign='64'/g" package/base-files/files/bin/config_g
 #2. Modify Hostname
 sed -i 's/ImmortalWrt/ARM SystemReady (EFI)/g' package/base-files/files/bin/config_generate
 
+
+rm -rf package/feeds/luci/luci-app-kcptun
+rm -rf package/feeds/luci/luci-app-speederv2
+rm -rf package/feeds/luci/luci-app-udp2raw
+
 #3. Modify Password to ********
 #sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
 
