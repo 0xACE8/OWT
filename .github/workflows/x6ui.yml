@@ -23,10 +23,10 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
   #REPO_BRANCH: openwrt-23.05
-  FEEDS_CONF: x6u/f33d5.c0nf
-  CONFIG_FILE: x6u/x6u.config
-  DIY_P1_SH: x6u/f33ds.sh
-  DIY_P2_SH: x6u/x6u_custom.sh
+  FEEDS_CONF: x6u/x6ui.c0nf.d3f4ul7
+  CONFIG_FILE: x6u/x6ui.c0nf
+  DIY_P1_SH: x6u/x6ui.f33ds.sh
+  DIY_P2_SH: x6u/x6ui_cu570m1z3.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: "America/Los_Angeles"
