@@ -33,7 +33,7 @@ sed -i 's/ntp1.aliyun.com/time.apple.com/g' package/emortal/default-settings/fil
 sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/luci/applications/luci-app-argon-config/po/zh_Hans/argon-config.po
 sed -i 's/"#5e72e4"/"#6600cc"/g' feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
 sed -i 's/"#483d8b"/"#f9a602"/g' feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
-#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # Change dns server
 #sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
@@ -60,9 +60,9 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # update gamespeeder
-rm -rf feeds/luci/applications/luci-app-udp2raw
-rm -rf feeds/luci/applications/luci-app-speederv2
-rm -rf feeds/packages/net/kcptun
+#rm -rf feeds/luci/applications/luci-app-udp2raw
+#rm -rf feeds/luci/applications/luci-app-speederv2
+#rm -rf feeds/packages/net/kcptun
 
 # Update kcptun
 #rm -rf feeds/packages/net/kcptun
