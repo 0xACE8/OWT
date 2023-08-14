@@ -59,6 +59,11 @@ echo 'net.core.wmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-def
 echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
+# update gamespeeder
+rm -rf feeds/luci/applications/luci-app-udp2raw
+rm -rf feeds/luci/applications/luci-app-speederv2
+rm -rf feeds/packages/net/kcptun
+
 # Update kcptun
 #rm -rf feeds/packages/net/kcptun
 #git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
