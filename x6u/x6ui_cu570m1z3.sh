@@ -24,7 +24,7 @@ sed -i 's/lang="auto"/lang="zh_cn"/g' package/emortal/default-settings/files/99-
 
 # interface
 sed -i "s/globals.ula_prefix='auto'/packet_steering='1'/g" package/base-files/files/bin/config_generate
-sed -i "/ip6assign='60'/d" 
+sed -i "/ip6assign='60'/d" package/base-files/files/bin/config_generate
 sed -i "9 i\uci set network.lan6=interface\nuci set network.lan6.proto='dhcpv6'\nuci set network.lan6.force_link='1'\nuci set network.lan6.reqaddress='try'\nuci set network.lan6.reqprefix='auto'\nuci set network.lan6.device='@lan'\nuci commit network\n" package/emortal/default-settings/files/99-default-settings
 
 # Time Zone to LA
