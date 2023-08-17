@@ -19,9 +19,12 @@ sed -i "s/root::0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:9
 # Change language=auto to zh_cn
 sed -i 's/lang="auto"/lang="zh_cn"/g' package/emortal/default-settings/files/99-default-settings
 
+# interface lan6
+sed -i "9 i\uci set network.lan6=interface\nuci set network.lan6.proto='dhcpv6'\nuci set network.lan6.force_link='1'\nuci set network.lan6.reqaddress='try'\nuci set network.lan6.reqprefix='auto'\nuci set network.lan6.device='@lan'\nuci commit network\n" package/emortal/default-settings/files/99-default-settings
+
 # Time Zone to LA
-sed -i 'CST-8/CST-4/g' package/emortal/default-settings/files/99-default-settings-chinese
-sed -i '"Asia/Shanghai"/"America/Los_Angeles"/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/CST-8/CST-4/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/"Asia\/Shanghai"/"America\/Los_Angeles"/g' package/emortal/default-settings/files/99-default-settings-chinese
 
 #7. Modify Ntp server
 sed -i 's/ntp.tencent.com/edu.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
@@ -60,14 +63,14 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # update gamespeeder
-rm -rf feeds/luci/applications/luci-app-udp2raw
-git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
+#rm -rf feeds/luci/applications/luci-app-udp2raw
+#git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
 #rm -rf feeds/luci/applications/luci-app-speederv2
 #rm -rf feeds/packages/net/kcptun
 
 # Update kcptun
 rm -rf feeds/packages/net/kcptun
-git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
+#git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
 
 # Update udpspeeder
 #rm -rf feeds/packages/net/udpspeeder
