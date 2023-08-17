@@ -11,7 +11,7 @@ sed -i 's/192.168.1.1/192.168.177.78/g' package/base-files/files/bin/config_gene
 sed -i 's/ImmortalWrt/Openwrt_Bypass/g' package/base-files/files/bin/config_generate
 
 # Password is ********
-#sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
+sed -i "s/root::0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g" package/base-files/files/etc/shadow
 
 # Modify builder
 #sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
