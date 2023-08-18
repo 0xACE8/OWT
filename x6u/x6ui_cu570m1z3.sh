@@ -53,18 +53,21 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # update gamespeeder
-#rm -rf feeds/luci/applications/luci-app-udp2raw
-#git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
-#rm -rf feeds/luci/applications/luci-app-speederv2
-#rm -rf feeds/packages/net/kcptun
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/0xACE8/golang.git feeds/packages/lang/golang
 
-# Update kcptun
 rm -rf feeds/packages/net/kcptun
-#git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
+git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
 
-# Update udpspeeder
-#rm -rf feeds/packages/net/udpspeeder
-#git clone https://github.com/0xACE8/udpspeeder.git feeds/packages/net/udpspeeder
+rm -rf feeds/luci/applications/luci-app-kcptun 
+git clone https://github.com/0xACE8/luci-app-kcptun feeds/luci/applications/luci-app-kcptun
+
+rm -rf feeds/packages/net/udp2raw
+git clone https://github.com/0xACE8/udp2raw.git feeds/packages/net/udp2raw
+
+rm -rf feeds/luci/applications/luci-app-udp2raw
+git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
+
 
 # Update dnscrypt-proxy2
 #rm -rf feeds/packages/net/dnscrypt-proxy2
