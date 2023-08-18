@@ -53,8 +53,8 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # update gamespeeder
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/0xACE8/golang.git feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone https://github.com/0xACE8/golang.git feeds/packages/lang/golang
 
 rm -rf feeds/packages/net/kcptun
 git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
