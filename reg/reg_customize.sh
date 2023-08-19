@@ -37,9 +37,7 @@ sed -i 's/ntp1.aliyun.com/time.apple.com/g' package/emortal/default-settings/fil
 
 #8. Change luci list name and xiaomi logo color
 #sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
-sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
-#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
-
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #9. Change to my banner and argone logo to mi logo
 sudo rm package/emortal/default-settings/files/openwrt_banner
@@ -51,6 +49,7 @@ sed -i 's/"ip6tables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/fil
 rm -rf feeds/ace/luci-theme-argone
 git clone https://github.com/kenzok78/luci-theme-argone feeds/ace/luci-theme-argone
 
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
 sed -i 's/"#5e72e4"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/"#483d8b"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
