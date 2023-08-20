@@ -44,14 +44,26 @@ sudo rm package/emortal/default-settings/files/openwrt_banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emortal/default-settings/files/openwrt_banner
 
 # Fix Mwan3 ipv6 issue
-sed -i 's/"ip6tables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/files/lib/mwan3/mwan3.sh
+#sed -i 's/"ip6tables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/files/lib/mwan3/mwan3.sh
+
+rm -rf feeds/luci/applications/luci-app-mwan3
+git clone https://github.com/0xACE8/luci-app-mwan3 feeds/luci/applications/luci-app-mwan3
+ls feeds/luci/applications/luci-app-mwan3
+
+rm -rf feeds/packages/net/mwan3
+git clone https://github.com/0xACE8/mwan3 feeds/packages/net/mwan3
+ls feeds/packages/net/mwan3
+
+rm -rf feeds/luci/applications/luci-app-syncdial
+git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
+ls feeds/luci/applications/luci-app-syncdial
 
 rm -rf feeds/ace/luci-theme-argone
 git clone https://github.com/kenzok78/luci-theme-argone feeds/ace/luci-theme-argone
 
 sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
-sed -i 's/"#5e72e4"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/"#483d8b"/"#ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"5e72e4"/"ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"483d8b"/"ff6900"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
