@@ -22,6 +22,9 @@ sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-c
 #sed -i 's/"#483d8b"/"#f9a602"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
+rm -rdf target/linux/meson/meson8b/config-5.10
+git clone https://github.com/0xACE8/toc.git target/linux/meson/meson8b/config-5.10
+
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
 sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/files/zzz-default-settings
