@@ -56,27 +56,33 @@ sed -i 's/"iptables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/file
 #rm -rf feeds/luci/applications/luci-app-syncdial
 #git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
 
-rm -rf feeds/ace/luci-theme-argone
-git clone https://github.com/kenzok78/luci-theme-argone feeds/ace/luci-theme-argone
+git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
+git clone https://github.com/kenzok78/luci-app-argone-config.git package/luci-app-argone-config
 
-sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
-sed -i 's/5e72e4/ff6900/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/483d8b/ff6900/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/argone.svg"
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/bg1.jpg"
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/android-icon-192x192.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-60x60.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-72x72.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-144x144.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-16x16.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-32x32.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-96x96.png"
-wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/ms-icon-144x144.png"
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh-cn/argone-config.po
+sed -i 's/5e72e4/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
+sed -i 's/483d8b/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
+sed -i 's/normal/light/g' package/luci-app-argone-config/root/etc/config/argone
+sed -i 's/5e72e4/ff6900/g' package/luci-app-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/5e72e4/ff6900/g' package/luci-app-argone/htdocs/luci-static/argone/less/cascade.less
+sed -i 's/483d8b/ff6900/g' package/luci-app-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/483d8b/ff6900/g' package/luci-app-argone/htdocs/luci-static/argone/less/cascade.less
+rm -rf package/luci-app-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
+rm -rf package/luci-app-argone/htdocs/luci-static/argone/img/argone.svg
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/argone.svg"
+rm -rf package/luci-app-argone/htdocs/luci-static/argone/img/bg1.jpg
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/img/bg1.jpg"
+rm -rf package/luci-app-argone/htdocs/luci-static/argone/icon/*.png
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/android-icon-192x192.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-60x60.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-72x72.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/apple-icon-144x144.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-16x16.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-32x32.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-96x96.png"
+wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/ms-icon-144x144.png"
+
 
 #10. Change wifi ssid: Fuck_Xiaomi
 #sed -i 's/ssid=OpenWrt/ssid=CMCC-702/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
