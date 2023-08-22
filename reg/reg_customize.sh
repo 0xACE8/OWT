@@ -53,9 +53,10 @@ sed -i 's/"iptables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/file
 #rm -rf feeds/packages/net/mwan3
 #git clone https://github.com/0xACE8/mwan3 feeds/packages/net/mwan3
 
-#rm -rf feeds/luci/applications/luci-app-syncdial
-#git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
+rm -rf feeds/luci/applications/luci-app-syncdial
+git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
 
+# Argone modded
 git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
 git clone https://github.com/kenzok78/luci-app-argone-config.git package/luci-app-argone-config
 
@@ -84,7 +85,9 @@ wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone
 wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/ms-icon-144x144.png"
 
 
-#10. Change wifi ssid: Fuck_Xiaomi
+# Change wifi ssid: Fuck_Xiaomi
 #sed -i 's/ssid=OpenWrt/ssid=CMCC-702/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i '/encryption/a\set wireless.default_radio${devidx}.key=_password_' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+echo "diy-part2.sh is done."
