@@ -83,6 +83,9 @@ wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone
 wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/favicon-96x96.png"
 wget --no-check-certificate -O package/luci-app-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/icon/ms-icon-144x144.png"
 
+# Upgrade hysteria to 1.3.5
+cp feeds/passwall1/hysteria/Makefile feeds/packages/net/hysteria/Makefile
+
 # Change wifi ssid: Fuck_Xiaomi
 #sed -i 's/ssid=OpenWrt/ssid=CMCC-702/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
