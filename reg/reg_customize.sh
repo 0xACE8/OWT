@@ -13,7 +13,7 @@ sed -i "s|DISTRIB_REVISION='%R'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='openwrt'" >>package/base-files/files/etc/openwrt_release
 
 #2. Modify Hostname
-sed -i 's/ImmortalWrt/Xiaomi_R3G/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/Xiaomi_MI_R3G/g' package/base-files/files/bin/config_generate
 
 #3. Modify Password to ********
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/emortal/default-settings/files/99-default-settings
