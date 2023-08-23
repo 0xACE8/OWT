@@ -30,10 +30,10 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # Modify Ntp server
+sed -i 's/ntp.tencent.com/ntp.tuna.tsinghua.edu.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/ntp1.aliyun.com/cn.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 sed -i 's/ntp.tencent.com/edu.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
-sed -i 's/ntp1.aliyun.com/time.apple.com/g' package/emortal/default-settings/files/99-default-settings-chinese
-#sed -i 's/ntp.tencent.com/edu.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
-#sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 
 # Change luci list name
 #sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
@@ -60,6 +60,7 @@ git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-a
 git clone https://github.com/kenzok78/luci-app-argone-config.git package/luci-app-argone-config
 
 sed -i 's/"Argonne 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh-cn/argone-config.po
+sed -i 's/"Argonne 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh-Hans/argone-config.po
 sed -i 's/5e72e4/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
 sed -i 's/483d8b/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
 sed -i 's/normal/light/g' package/luci-app-argone-config/root/etc/config/argone
