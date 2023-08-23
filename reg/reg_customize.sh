@@ -39,6 +39,9 @@ sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/fil
 #sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
+# Add Dashboard
+wget -O package/luci-mod-dashboard https://github.com/immortalwrt/luci/tree/openwrt-21.02/modules/luci-mod-dashboard
+
 # Change to my banner
 sudo rm package/emortal/default-settings/files/openwrt_banner
 wget https://raw.githubusercontent.com/0xACE8/OWT/main/reg/banner -O package/emortal/default-settings/files/openwrt_banner
