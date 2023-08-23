@@ -63,7 +63,6 @@ git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-a
 git clone https://github.com/kenzok78/luci-app-argone-config.git package/luci-app-argone-config
 
 sed -i 's/"Argone 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh-cn/argone-config.po
-rm -rf package/luci-app-argone-config/po/zh-Hans
 sed -i 's/5e72e4/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
 sed -i 's/483d8b/ff6900/g' package/luci-app-argone-config/root/etc/config/argone
 sed -i 's/normal/light/g' package/luci-app-argone-config/root/etc/config/argone
