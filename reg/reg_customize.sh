@@ -58,6 +58,11 @@ sed -i 's/"iptables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/file
 rm -rf feeds/luci/applications/luci-app-syncdial
 git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
 
+git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+sed -i 's/control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/Control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+
 # Argone upgraded to Xiaomi theme
 git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
 git clone https://github.com/kenzok78/luci-app-argone-config.git package/luci-app-argone-config
