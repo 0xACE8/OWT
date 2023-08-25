@@ -61,7 +61,7 @@ git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/lu
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 sed -i 's/control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/Control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/Control/Services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 # Argone upgraded to Xiaomi theme
 git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
@@ -75,6 +75,8 @@ sed -i 's/5e72e4/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/c
 sed -i 's/5e72e4/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
 sed -i 's/483d8b/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/483d8b/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
+sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
 rm -rf package/luci-app-argone/htdocs/luci-static/argone/favicon.ico
 wget --no-check-certificate -O package/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
 rm -rf package/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
