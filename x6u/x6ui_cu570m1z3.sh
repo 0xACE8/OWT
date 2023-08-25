@@ -5,7 +5,7 @@
 # Author: 0xACE7
 #=================================================
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.177.78/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.177.80/g' package/base-files/files/bin/config_generate
 
 # Set etc/openwrt_release
 sed -i 's/ImmortalWrt/Openwrt_Bypass/g' package/base-files/files/bin/config_generate
@@ -32,10 +32,10 @@ sed -i 's/CST-8/CST-4/g' package/emortal/default-settings/files/99-default-setti
 sed -i 's/"Asia\/Shanghai"/"America\/Los_Angeles"/g' package/emortal/default-settings/files/99-default-settings-chinese
 
 #7. Modify Ntp server
+sed -i 's/ntp.tencent.com/ntp.tuna.tsinghua.edu.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/ntp1.aliyun.com/cn.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 sed -i 's/ntp.tencent.com/edu.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
-sed -i 's/ntp1.aliyun.com/time.apple.com/g' package/emortal/default-settings/files/99-default-settings-chinese
-#sed -i 's/ntp.ntsc.ac.cn/edu.ntp.org.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
-#sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 
 # Change luci list name
 sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/luci/applications/luci-app-argon-config/po/zh_Hans/argon-config.po
@@ -55,6 +55,8 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 # update gamespeeder
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/0xACE8/golang.git feeds/packages/lang/golang
+
+git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/luci/applications/luci-app-udpspeeder
 
 rm -rf feeds/packages/net/kcptun
 git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
