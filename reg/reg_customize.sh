@@ -61,8 +61,8 @@ sed -i 's/"iptables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/file
 # App Patch
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-#sed -i 's/control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-#sed -i 's/Control/Services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's,"control","system",g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i '/firstchild/d' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 # Samba4 Patch
 #sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
