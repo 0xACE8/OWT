@@ -64,7 +64,7 @@ jobs:
       with:
           ccache: 'true'
           mixkey: 'r3g'
-          prefix: 'OWT'       
+          prefix: 'openwrt'       
 
     - name: Load custom feeds
       run: |
