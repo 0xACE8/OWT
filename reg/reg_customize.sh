@@ -40,7 +40,7 @@ sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/fil
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # Add Dashboard
-wget -O package/luci-mod-dashboard https://github.com/immortalwrt/luci/tree/openwrt-21.02/modules/luci-mod-dashboard
+#wget -O package/luci-mod-dashboard https://github.com/immortalwrt/luci/tree/openwrt-21.02/modules/luci-mod-dashboard
 
 # Change to my banner
 sudo rm package/emortal/default-settings/files/openwrt_banner
@@ -55,17 +55,17 @@ sed -i 's/"iptables -t mangle -w"/"\/bin\/true"/g' feeds/packages/net/mwan3/file
 #git clone https://github.com/0xACE8/mwan3 feeds/packages/net/mwan3
 
 # Replace with new version syncdial
-rm -rf feeds/luci/applications/luci-app-syncdial
-git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
+#rm -rf feeds/luci/applications/luci-app-syncdial
+#git clone https://github.com/0xACE8/luci-app-syncdial feeds/luci/applications/luci-app-syncdial
 
 # App Patch
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-sed -i 's/control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/Control/Services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+#sed -i 's/control/services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+#sed -i 's/Control/Services/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 # Samba4 Patch
-sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
+#sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 
 # Argone upgraded to Xiaomi theme
 git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
@@ -79,8 +79,8 @@ sed -i 's/5e72e4/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/c
 sed -i 's/5e72e4/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
 sed -i 's/483d8b/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/483d8b/ff6900/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
-sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
+#sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+#sed -i 's/fb6340/d43f3a/g' package/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
 rm -rf package/luci-app-argone/htdocs/luci-static/argone/favicon.ico
 wget --no-check-certificate -O package/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/reg/argone/favicon.ico"
 rm -rf package/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
