@@ -66,7 +66,7 @@ sed -i '/firstchild/d' package/luci-app-autotimeset/luasrc/controller/autotimese
 sed -i 's/control]/system]/g' package/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 
 # Samba4 Patch
-#sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
+sed -i 's/\"nas\"/\"services\"/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 
 # Argone upgraded to Xiaomi theme
 git clone https://github.com/kenzok78/luci-theme-argone.git package/luci-theme-argone
