@@ -63,6 +63,7 @@ git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-auto
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 sed -i 's,"control","system",g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i '/firstchild/d' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/control]/system]/g' package/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 
 # Samba4 Patch
 #sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
