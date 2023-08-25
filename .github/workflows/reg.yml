@@ -64,7 +64,7 @@ jobs:
       with:
           ccache: 'true'
           mixkey: 'r3g'
-          prefix: 'immortalwrt'       
+          prefix: 'OWT'       
 
     - name: Load custom feeds
       run: |
