@@ -56,7 +56,8 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/0xACE8/golang.git feeds/packages/lang/golang
 
-git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/luci/applications/luci-app-udpspeeder
+git clone https://github.com/0xACE8/luci-app-udpspeeder package/luci-app-udpspeeder
+git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 
 rm -rf feeds/packages/net/kcptun
 git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
