@@ -12,8 +12,8 @@ sed -i 's/ImmortalWrt/Bypass_Router/g' package/base-files/files/bin/config_gener
 sed -i "s|DISTRIB_REVISION='%R'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
 echo "DISTRIB_SOURCECODE='openwrt'" >>package/base-files/files/etc/openwrt_release
 sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
-sed -i 's/ImmortalWrt/OpenWrt/g' config/Config-images.in
-sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/image-config.in
+#sed -i 's/ImmortalWrt/OpenWrt/g' config/Config-images.in
+#sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/image-config.in
 #sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Password is ********
