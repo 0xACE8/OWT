@@ -60,8 +60,6 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # update gamespeeder
-rm -rf feeds/0xACE8/luci-app-udpspeeder
-git clone https://github.com/0xACE8/luci-app-udpspeeder package/luci-app-udpspeeder
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 rm -rf feeds/packages/net/kcptun
 git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
@@ -71,6 +69,8 @@ rm -rf feeds/packages/net/udp2raw
 git clone https://github.com/0xACE8/udp2raw.git feeds/packages/net/udp2raw
 rm -rf feeds/luci/applications/luci-app-udp2raw
 git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
+rm -rf feeds/ace8/luci-app-udpspeeder
+git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udpspeeder
 
 # Update dnscrypt-proxy2
 #rm -rf feeds/packages/net/dnscrypt-proxy2
