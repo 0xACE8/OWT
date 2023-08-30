@@ -76,13 +76,13 @@ git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udps
 #rm -rf feeds/packages/net/dnscrypt-proxy2
 #git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscrypt-proxy2
 sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' feeds/packages/net/dnscrypt-proxy2/Makefile
-sed -i '59 i\ \tsed -i "s\/ipv6_servers = false\/ipv6_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
-sed -i '60 i\ \tsed -i "s\/odoh_servers = false\/odoh_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
-sed -i '61 i\ \tsed -i "s\/http3 = false\/http3 = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
-sed -i '62 i\ \tsed -i "s\/cache_size = 4096\/cache_size = 10240\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i '59 i\ \tsed -i "s\/ipv6_servers = false\/ipv6_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i '60 i\ \tsed -i "s\/odoh_servers = false\/odoh_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i '61 i\ \tsed -i "s\/http3 = false\/http3 = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i '62 i\ \tsed -i "s\/cache_size = 4096\/cache_size = 10240\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
 #sed -i '63 i\ \tsed -i "s/# proxy/proxy/g" $(1)/etc/dnscrypt-proxy2/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
 #sed -i '64 i\ \tsed -i "s/127.0.0.1:9050/127.0.0.1:1070/g" $(1)/etc/dnscrypt-proxy2/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
-sed -i '65 i\ \tsed -i "s/# blocked_names_file/blocked_names_file/g" $(1)/etc/dnscrypt-proxy2/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i '65 i\ \tsed -i "s/# blocked_names_file/blocked_names_file/g" $(1)/etc/dnscrypt-proxy2/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
 
 # Change to my banner
 sudo rm package/base-files/files/etc/banner
