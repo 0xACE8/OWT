@@ -60,12 +60,12 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
-#    - name: Cache
-#      uses: stupidloud/cachewrtbuild@main
-#      with:
-#        ccache: 'true'
-#        mixkey: 'x64'
-#        prefix: 'openwrt'
+    - name: Cache
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        mixkey: 'x64'
+        prefix: 'openwrt'
 
     - name: Load custom feeds
       run: |
@@ -84,7 +84,6 @@ jobs:
         git clone https://github.com/fullcone-nat-nftables/nft-fullcone
         git clone https://github.com/chenmozhijin/turboacc
         mv ./turboacc/luci-app-turboacc ./luci-app-turboacc
-        sed -i 's/"Turbo ACC 网络加速设置"/"网络加速"/g' ./luci-app-turboacc/po/zh-cn/turboacc.po
         rm -rf ./turboacc
         cd ../..
         cp -f turboacc_tmp/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch ./target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
