@@ -64,9 +64,9 @@ sed -i 's/ntp.tencent.com/ntp.ntsc.ac.cn/g' package/emortal/default-settings/fil
 sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/luci/applications/luci-app-argon-config/po/zh_Hans/argon-config.po
 #sed -i 's/"#5e72e4"/"#6600cc"/g' feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
 #sed -i 's/"#483d8b"/"#f9a602"/g' feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
-sed -i 's/5e72e4/6600cc/g' package/luci-app-argone-config/root/etc/config/argone
-sed -i 's/483d8b/f9a602/g' package/luci-app-argone-config/root/etc/config/argone
-sed -i 's/normal/light/g' package/luci-app-argone-config/root/etc/config/argone
+sed -i 's/5e72e4/6600cc/g' feeds/luci/applications/luci-app-argon-config/root/etc/config/argone
+sed -i 's/483d8b/f9a602/g' feeds/luci/applications/luci-app-argon-config/root/etc/config/argone
+sed -i 's/normal/light/g' feeds/luci/applications/luci-app-argon-config/root/etc/config/argone
 
 # Boost UDP
 echo '# optimize udp' >>package/base-files/files/etc/sysctl.d/10-default.conf
@@ -77,7 +77,7 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # change some tips
-sed -i 's/"终端"/"TTYD 终端"/g' feeds/luci/applications/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
+sed -i 's/"终端"/"TTYD 终端"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
 # update gamespeeder
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
