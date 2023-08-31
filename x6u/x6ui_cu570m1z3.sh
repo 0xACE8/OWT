@@ -75,7 +75,7 @@ git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udps
 # Update dnscrypt-proxy2
 #rm -rf feeds/packages/net/dnscrypt-proxy2
 #git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscrypt-proxy2
-sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' feeds/packages/net/dnscrypt-proxy2/Makefile
+#sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' feeds/packages/net/dnscrypt-proxy2/Makefile
 #sed -i '59 i\ \tsed -i "s\/ipv6_servers = false\/ipv6_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
 #sed -i '60 i\ \tsed -i "s\/odoh_servers = false\/odoh_servers = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
 #sed -i '61 i\ \tsed -i "s\/http3 = false\/http3 = true\/g" \$(1)\/etc\/dnscrypt-proxy2\/dnscrypt-proxy.toml' feeds/packages/net/dnscrypt-proxy2/Makefile
