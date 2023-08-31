@@ -30,7 +30,7 @@ sed -i "/ip6assign='60'/d" package/base-files/files/bin/config_generate
 sed -i "9 i\uci set network.lan6=interface\nuci set network.lan6.proto='dhcpv6'\nuci set network.lan6.force_link='1'\nuci set network.lan6.reqaddress='try'\nuci set network.lan6.reqprefix='auto'\nuci set network.lan6.device='@lan'\nuci commit network\n" package/emortal/default-settings/files/99-default-settings
 # firewall
 sed -i "17 i\ \tlist network\t\t'lan6'" package/network/config/firewall/files/firewall.config
-#sed -i "s/ \t/\t/g" package/network/config/firewall/files/firewall.config
+sed -i "s/ \t/\t/g" package/network/config/firewall/files/firewall.config
 # dhcp
 #sed -i "s/ \t/\t/g" package/network/services/dnsmasq/files/dhcp.conf
 
