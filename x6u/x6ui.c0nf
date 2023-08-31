@@ -282,6 +282,10 @@ CONFIG_SQLITE3_FTS3=y
 CONFIG_SQLITE3_FTS4=y
 CONFIG_SQLITE3_FTS5=y
 CONFIG_SQLITE3_RTREE=y
+# turboacc
+CONFIG_PACKAGE_nft-fullcone=y
+CONFIG_PACKAGE_luci-app-turboacc=y
+CONFIG_PACKAGE_luci-i18n-turboacc=y
 # quickstart
 CONFIG_PACKAGE_luci-app-quickstart=n
 CONFIG_PACKAGE_luci-i18n-quickstart=n
