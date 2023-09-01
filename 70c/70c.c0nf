@@ -242,5 +242,6 @@ CONFIG_SQLITE3_RTREE=y
 # CONFIG_PACKAGE_wget-ssl is not set
 # CONFIG_PACKAGE_wol is not set
 # CONFIG_PACKAGE_xray-example is not set
+# CONFIG_TARGET_IMAGES_GZIP is not set
 # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
 # CONFIG_ZRAM_DEF_COMP_LZORLE is not set
