@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: onecloud
+name: Build OWT 70c Atcions
 
 on:
   repository_dispatch:
