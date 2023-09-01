@@ -44,8 +44,8 @@ sed -i "45 i\ \toption dhcpv4\t'server'\n\toption ra_management\t'1'\n\toption i
 sed -i 's/option ignore\t1/option ignore\t1\n/g' package/network/services/dnsmasq/files/dhcp.conf
 sed -i "53 i\ \nconfig odhcpd\t'odhcpd'\n\toption maindhcp\t'0'\n" package/network/services/dnsmasq/files/dhcp.conf
 sed -i "s/ \t/\t/g" package/network/services/dnsmasq/files/dhcp.conf
-sed -i "190 i\ \tmkdir /etc/dnsmasq.d" package/network/services/dnsmasq/Makefile
-sed -i '191 i\ \twget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' package/network/services/dnsmasq/Makefile
+#sed -i "190 i\ \tmkdir \$\${IPKG_INSTROOT}/etc/dnsmasq.d" package/network/services/dnsmasq/Makefile
+#sed -i '191 i\ \twget --no-check-certificate -O \$\${IPKG_INSTROOT}/etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' package/network/services/dnsmasq/Makefile
 sed -i "s/ \t/\t/g" package/network/services/dnsmasq/Makefile
 echo "interface updated."
 
