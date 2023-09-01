@@ -48,7 +48,7 @@ sed -i "s/ \t/\t/g" package/network/services/dnsmasq/files/dhcp.conf
 #sed -i '191 i\ \twget --no-check-certificate -O \$\${IPKG_INSTROOT}/etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' package/network/services/dnsmasq/Makefile
 sed -i "s/ \t/\t/g" package/network/services/dnsmasq/Makefile
 echo "interface updated."
-
+# package/base-files/files/etc/uci-defaults
 
 # Time Zone to LA
 sed -i 's/CST-8/CST-4/g' package/emortal/default-settings/files/99-default-settings-chinese
