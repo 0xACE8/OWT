@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/shiyu1314/lede
   REPO_BRANCH: master
   FEEDS_CONF: 70c/70c.c0nf.d3f4ul7
   CONFIG_FILE: 70c/70c.c0nf
@@ -72,7 +72,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds install -a -f -p passwall1 && ./scripts/feeds install -a
 
     - name: Load custom configuration
       run: |
