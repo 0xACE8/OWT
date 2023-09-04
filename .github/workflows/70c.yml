@@ -118,6 +118,7 @@ jobs:
           curl -L -o ./uboot.img https://github.com/shiyu1314/u-boot-onecloud/releases/download/build-20230901-0443/eMMC.burn.img
           ./AmlImg unpack ./uboot.img burn/
           echo "::endgroup::"
+          gunzip openwrt/bin/targets/*/*/*.gz
           diskimg=$(ls openwrt/bin/targets/*/*/*.img)
           loop=$(sudo losetup --find --show --partscan $diskimg)
           img_ext="openwrt.img"
@@ -159,7 +160,8 @@ jobs:
             sha256sum "$f" >"${f}.sha"
             xz --threads=0 --compress "$f"
           done
-          sudo rm -rf openwrt/bin/targets/*/*/*.burn.img
+          sudo rm -rf openwrt/bin/targets/*/*/*.img
+          sudo rm -rf openwrt/bin/targets/*/*/*.gz
 
     - name: Check space usage
       if: (!cancelled())
