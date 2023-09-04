@@ -52,7 +52,7 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 # Argon
 git clone https://github.com/kenzok78/luci-theme-argone package/luci-theme-argone
 git clone https://github.com/kenzok78/luci-app-argone-config package/luci-app-argone-config
-#sed -i 's/"Argone 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh_cn/argone-config.po
+sed -i 's/"Argone 主题设置"/"主题设置"/g' package/luci-app-argone-config/po/zh_cn/argone-config.po
 
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
