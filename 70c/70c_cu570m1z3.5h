@@ -57,6 +57,10 @@ sed -i 's/"Argone 主题设置"/"主题设置"/g' package/luci-app-argone-config
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 
+# 
+rm -rf package/network/config/firewall/files/firewall.config
+wget https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
+
 #
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 
