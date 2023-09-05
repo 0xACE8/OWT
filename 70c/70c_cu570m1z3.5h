@@ -52,14 +52,14 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 # Argon
 #git clone https://github.com/kenzok78/luci-theme-argone package/luci-theme-argone
 #git clone https://github.com/kenzok78/luci-app-argone-config package/luci-app-argone-config
-sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh_cn/argone-config.po
+sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
 
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 
 # 
 rm -rf package/network/config/firewall/files/firewall.config
-wget https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
 
 #
 #git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
