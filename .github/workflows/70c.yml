@@ -20,7 +20,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/shiyu1314/lede
+  #REPO_URL: https://github.com/shiyu1314/lede
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: 70c/70c.c0nf.d3f4ul7
   CONFIG_FILE: 70c/70c.c0nf
@@ -61,12 +62,12 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: Cache
-      uses: stupidloud/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        mixkey: '70c'
-        prefix: 'openwrt'
+#    - name: Cache
+#      uses: stupidloud/cachewrtbuild@main
+#      with:
+#        ccache: 'true'
+#        mixkey: '70c'
+#        prefix: 'openwrt'
 
     - name: Load custom feeds
       run: |
@@ -79,7 +80,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a -f -p passwall && ./scripts/feeds install -a -f -p ace && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds install -a -f -p ace && ./scripts/feeds install -a
 
     - name: Load custom configuration
       run: |
@@ -195,6 +196,33 @@ jobs:
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
+
+#    - name: Check space usage
+#      if: (!cancelled())
+#      run: df -hT
+
+#    - name: Upload bin directory
+#      uses: actions/upload-artifact@main
+#      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+#      with:
+#        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+#        path: openwrt/bin
+
+#    - name: Organize files
+#      id: organize
+#      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+#      run: |
+#        cd openwrt/bin/targets/*/*
+#        rm -rf packages
+#        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+#        echo "status=success" >> $GITHUB_OUTPUT
+
+#    - name: Upload firmware directory
+#      uses: actions/upload-artifact@main
+#      if: steps.organize.outputs.status == 'success' && !cancelled()
+#      with:
+#        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+#        path: ${{ env.FIRMWARE }}
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
