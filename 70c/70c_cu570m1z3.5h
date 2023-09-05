@@ -60,6 +60,10 @@ sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 # 
 rm -rf package/network/config/firewall/files/firewall.config
 wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
+rm -rf package/lean/default-settings/files/zzz-default-settings
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/zzz-default-settings -O package/lean/default-settings/files/zzz-default-settings
+rm -rf package/network/services/dnsmasq/files/dhcp.conf
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/dhcp.conf -O package/network/services/dnsmasq/files/dhcp.conf
 
 #
 #git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
