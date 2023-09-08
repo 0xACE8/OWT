@@ -11,7 +11,7 @@ sed -i 's/192.168.1.1/192.168.177.90/g' package/base-files/files/bin/config_gene
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='OneCloud'' package/lean/default-settings/files/zzz-default-settings
 
 # Password is ********
-#sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
 
 # Modify builder
@@ -51,8 +51,6 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # Argon
-#git clone https://github.com/kenzok78/luci-theme-argone package/luci-theme-argone
-#git clone https://github.com/kenzok78/luci-app-argone-config package/luci-app-argone-config
 sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
 
 # samba4.lua to services
@@ -61,10 +59,11 @@ sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 # 
 #rm -rf package/network/config/firewall/files/firewall.config
 #wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
-rm -rf package/lean/default-settings/files/zzz-default-settings
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/zzz-default-settings -O package/lean/default-settings/files/zzz-default-settings
+#rm -rf package/lean/default-settings/files/zzz-default-settings
+#wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/zzz-default-settings -O package/lean/default-settings/files/zzz-default-settings
 rm -rf package/network/services/dnsmasq/files/dhcp.conf
 wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/dhcp.conf -O package/network/services/dnsmasq/files/dhcp.conf
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/my-uci-defaults -O package/base-files/files/etc/uci-defaults/my-uci-defaults
 
 #
 #git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
