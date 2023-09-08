@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# LAN interface
+uci set luci.main.lang=zh_cn
+uci commit luci
+
+uci set system.@system[0].timezone=CST-4
+uci set system.@system[0].zonename=America/Los_Angeles
+uci commit system
+
+# network config
+uci set network.lan.dns='8.8.8.8'
+uci set network.lan.delegate='0'
+uci set network.lan.gateway='192.168.177.1'
+uci set network.lan.proto=static
+uci set network.lan1_6='interface'
+uci set network.lan1_6.proto='dhcpv6'
+uci set network.lan1_6.ifname='@lan'
+uci set network.lan1_6.delegate='0'
+uci set network.lan1_6.reqaddress='try'
+uci set network.lan1_6.reqprefix='auto'
+uci set network.lan1_6.peerdns='0'
+uci set network.lan1_6.dns='::1'
+nuci commit network
+
+# dhcp
+mkdir /etc/dnsmasq.d
+wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
+
+resize2fs /dev/mmcblk1p2
+
+exit 0
+
