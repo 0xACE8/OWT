@@ -29,5 +29,7 @@ wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "ht
 
 resize2fs /dev/mmcblk1p2
 
+sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2\nexit 0/g' package/base-files/files/etc/rc.local
+
 exit 0
 
