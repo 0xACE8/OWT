@@ -18,28 +18,12 @@ sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Change luci list name
-#sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argone-config/po/zh-cn/argone-config.po
-#sed -i 's/"#5e72e4"/"#6600cc"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-#sed -i 's/"#483d8b"/"#f9a602"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #rm -rdf target/linux/meson/meson8b
 #git clone https://github.com/0xACE8/toc.git target/linux/meson/meson8b
 
 # Change dns server
-sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
-sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/files/zzz-default-settings
-sed -i "4i uci set network.lan.delegate='0'" package/lean/default-settings/files/zzz-default-settings
-sed -i "5i uci set network.lan.gateway='192.168.177.1'" package/lean/default-settings/files/zzz-default-settings
-sed -i "6i # ipv6 network config" package/lean/default-settings/files/zzz-default-settings
-sed -i "7i uci set network.lan6='interface'" package/lean/default-settings/files/zzz-default-settings
-sed -i "8i uci set network.lan6.proto='dhcpv6'" package/lean/default-settings/files/zzz-default-settings
-sed -i "9i uci set network.lan6.ifname='eth0'" package/lean/default-settings/files/zzz-default-settings
-sed -i "10i uci set network.lan6.delegate='0'" package/lean/default-settings/files/zzz-default-settings
-sed -i "11i uci set network.lan6.reqaddress='try'" package/lean/default-settings/files/zzz-default-settings
-sed -i "12i uci set network.lan6.reqprefix='auto'" package/lean/default-settings/files/zzz-default-settings
-sed -i "13i uci set network.lan6.peerdns='0'" package/lean/default-settings/files/zzz-default-settings
-sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/zzz-default-settings
 #sed -i '/revert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
 
 # Boost UDP
@@ -52,6 +36,19 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 
 # Argon
 sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
+sed -i 's/"#5e72e4"/"#1c77ff"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"#483d8b"/"#1c77ff"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/"#5e72e4"/"#1c77ff"/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+sed -i 's/"#483d8b"/"#1c77ff"/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+sed -i 's/normal/dark/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
+svn co https://github.com/0xACE8/OWT/tree/main/70c/argone/icon feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
+svn co https://github.com/0xACE8/OWT/tree/main/70c/argone/img feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
+wget -no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/favicon.ico -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
 
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
