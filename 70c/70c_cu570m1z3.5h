@@ -48,7 +48,7 @@ rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
 svn co https://github.com/0xACE8/OWT/tree/main/70c/argone/img feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
-wget -no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/favicon.ico -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/favicon.ico -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
 
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
