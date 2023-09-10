@@ -64,6 +64,9 @@ wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/ar
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/favicon-96x96.png"
 wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/ms-icon-144x144.png"
 
+rm -rf feeds/p455w4ll/hysteria
+git clone -b v1.3.5 https://github.com/0xACE8/hysteria.git feeds/p455w4ll/hysteria
+
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 
