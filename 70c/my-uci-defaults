@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # luci language
-uci set luci.main.lang=zh_cn
-uci commit luci
+#uci set luci.main.lang=zh_cn
+#uci commit luci
 
 # system
 #uci set system.@system[0].hostname=OneCloud
