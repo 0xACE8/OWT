@@ -5,19 +5,23 @@
 # Author: 0xACE7
 #=================================================
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.177.90/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.177.90/g' package/base-files/files/bin/config_generate
+
+# Password updata
+sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:${{ secrets.ROOT_PASSWORD }}:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
+
+# Ssh authorized key
+mkdir -p package/base-files/files/etc/dropbear
+echo "${{ secrets.SSH_PUBLICKEY }}" > package/base-files/files/etc/dropbear/authorized_keys > /dev/null
 
 # Modify Hostname
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='OneCloud'' package/lean/default-settings/files/zzz-default-settings
-
-# Password is ********
-#sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
+#sed -i '/uci commit system/i\uci set system.@system[0].hostname='OneCloud'' package/lean/default-settings/files/zzz-default-settings
 
 # Modify builder
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
-# Change luci list name
+# Fix Turbo ACC
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 sed -i '/\t\trevert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
 
@@ -58,21 +62,11 @@ wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/ar
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 
-# list
+# add dns list
 mkdir -p package/base-files/files/etc/dnsmasq.d
 wget --no-check-certificate -O package/base-files/files/etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
 
 # upgrade config
 wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/my-uci-defaults -O package/base-files/files/etc/uci-defaults/my-uci-defaults
 
-# gamespeeder
-#rm -rf feeds/packages/net/kcptun
-#git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
-#rm -rf feeds/luci/applications/luci-app-kcptun 
-#git clone https://github.com/0xACE8/luci-app-kcptun feeds/luci/applications/luci-app-kcptun
-#rm -rf feeds/packages/net/udp2raw
-#git clone https://github.com/0xACE8/udp2raw.git feeds/packages/net/udp2raw
-#rm -rf feeds/luci/applications/luci-app-udp2raw
-#git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
-#rm -rf feeds/ace8/luci-app-udpspeeder
-#git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udpspeeder
+echo "Done!"
