@@ -20,11 +20,8 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 # Change luci list name
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
-#rm -rdf target/linux/meson/meson8b
-#git clone https://github.com/0xACE8/toc.git target/linux/meson/meson8b
-
 # Change dns server
-#sed -i '/revert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
+sed -i '/\t\trevert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
 
 # Boost UDP
 echo '# optimize udp' >>package/base-files/files/etc/sysctl.d/10-default.conf
@@ -34,36 +31,41 @@ echo 'net.core.wmem_max=26214400' >>package/base-files/files/etc/sysctl.d/10-def
 echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10-default.conf
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
-# Argon
+# Argone
 sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
-sed -i 's/"#5e72e4"/"#1c77ff"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/"#483d8b"/"#1c77ff"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
-sed -i 's/"#5e72e4"/"#1c77ff"/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
-sed -i 's/"#483d8b"/"#1c77ff"/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+sed -i 's/5e72e4/1c77ff/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+sed -i 's/483d8b/1c77ff/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
 sed -i 's/normal/dark/g' feeds/ace/luci-app-argone-config/root/etc/config/argone
+sed -i 's/5e72e4/1c77ff/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/483d8b/1c77ff/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
+sed -i 's/5e72e4/1c77ff/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
+sed -i 's/483d8b/1c77ff/g' feeds/ace/luci-theme-argone/htdocs/luci-static/argone/less/cascade.less
 
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
-svn co https://github.com/0xACE8/OWT/tree/main/70c/argone/icon feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+rm -rf feeds/ace/luci-app-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/favicon.ico"
 rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-svn co https://github.com/0xACE8/OWT/tree/main/70c/argone/img feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img
-rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/favicon.ico -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/img/argone.svg"
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/img/bg1.jpg"
+rm -rf feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/android-icon-192x192.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/apple-icon-60x60.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/apple-icon-72x72.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/apple-icon-144x144.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/favicon-16x16.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/favicon-32x32.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/favicon-96x96.png"
+wget --no-check-certificate -O feeds/ace/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/70c/argone/icon/ms-icon-144x144.png"
 
 # samba4.lua to services
 sed -i "/samba4.lua/d" package/lean/default-settings/files/zzz-default-settings
 
-# 
-#rm -rf package/network/config/firewall/files/firewall.config
-#wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/firewall.config -O package/network/config/firewall/files/firewall.config
-#rm -rf package/lean/default-settings/files/zzz-default-settings
-#wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/zzz-default-settings -O package/lean/default-settings/files/zzz-default-settings
-rm -rf package/network/services/dnsmasq/files/dhcp.conf
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/dhcp.conf -O package/network/services/dnsmasq/files/dhcp.conf
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/my-uci-defaults -O package/base-files/files/etc/uci-defaults/my-uci-defaults
+# list
+mkdir -p package/base-files/files/etc/dnsmasq.d
+wget --no-check-certificate -O package/base-files/files/etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
 
-#
-#git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+# upgrade config
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/my-uci-defaults -O package/base-files/files/etc/uci-defaults/my-uci-defaults
 
 # gamespeeder
 #rm -rf feeds/packages/net/kcptun
