@@ -4,32 +4,180 @@
 uci set luci.main.lang=zh_cn
 uci commit luci
 
-uci set system.@system[0].timezone=CST-4
-uci set system.@system[0].zonename=America/Los_Angeles
-uci commit system
+#uci set system.@system[0].timezone=CST-4
+#uci set system.@system[0].zonename=America/Los_Angeles
+#uci commit system
 
 # network config
-uci set network.lan.dns='8.8.8.8'
-uci set network.lan.delegate='0'
-uci set network.lan.gateway='192.168.177.1'
-uci set network.lan.proto=static
-uci set network.lan1_6='interface'
-uci set network.lan1_6.proto='dhcpv6'
-uci set network.lan1_6.ifname='@lan'
-uci set network.lan1_6.delegate='0'
-uci set network.lan1_6.reqaddress='try'
-uci set network.lan1_6.reqprefix='auto'
-uci set network.lan1_6.peerdns='0'
-uci set network.lan1_6.dns='::1'
-nuci commit network
+#uci set network.lan.dns='8.8.8.8'
+#uci set network.lan.delegate='0'
+#uci set network.lan.gateway='192.168.177.1'
+#uci set network.lan.proto=static
+#uci set network.lan1_6='interface'
+#uci set network.lan1_6.proto='dhcpv6'
+#uci set network.lan1_6.ifname='@lan'
+#uci set network.lan1_6.delegate='0'
+#uci set network.lan1_6.reqaddress='try'
+#uci set network.lan1_6.reqprefix='auto'
+#uci set network.lan1_6.peerdns='0'
+#uci set network.lan1_6.dns='::1'
+#uci commit network
+
+#
+cat > /etc/config/network <<-"EOF"
+
+config interface 'loopback'
+        option ifname 'lo'
+        option proto 'static'
+        option ipaddr '127.0.0.1'
+        option netmask '255.0.0.0'
+
+config globals 'globals'
+        option packet_steering '1'
+
+config interface 'lan'
+        option ifname 'eth0'
+        option proto 'static'
+        option netmask '255.255.255.0'
+        option dns '127.0.0.1'
+        option gateway '192.168.177.1'
+        option ipaddr '192.168.177.90'
+        option metric '0'
+
+config interface 'lan2'
+        option proto 'static'
+        option ifname 'eth0'
+        option ipaddr '192.168.177.91'
+        option netmask '255.255.255.0'
+        option gateway '192.168.177.1'
+        option dns '127.0.0.1'
+        option force_link '0'
+        option metric '1'
+
+config interface 'lan3'
+        option proto 'static'
+        option ifname 'eth0'
+        option ipaddr '192.168.177.92'
+        option netmask '255.255.255.0'
+        option gateway '192.168.177.1'
+        option force_link '0'
+        option metric '2'
+
+config interface 'lan1_6'
+        option proto 'dhcpv6'
+        option ifname '@lan'
+        option reqaddress 'try'
+        option reqprefix 'auto'
+        option peerdns '0'
+        option dns '::1'
+
+config interface 'lan2_6'
+        option proto 'dhcpv6'
+        option ifname '@lan2'
+        option reqaddress 'try'
+        option reqprefix 'auto'
+        option peerdns '0'
+        option dns '::1'
+
+config interface 'lan3_6'
+        option proto 'dhcpv6'
+        option ifname '@lan3'
+        option reqaddress 'try'
+        option reqprefix 'auto'
+        option peerdns '0'
+        option dns '::1'
+EOF
 
 # dhcp
-mkdir /etc/dnsmasq.d
-wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
+cat > /etc/config/dhcp <<-"EOF"
 
+config dnsmasq
+        option domainneeded '1'
+        option localise_queries '1'
+        option rebind_protection '1'
+        option rebind_localhost '1'
+        option local '/lan/'
+        option domain 'lan'
+        option expandhosts '1'
+        option leasefile '/tmp/dhcp.leases'
+        option nonwildcard '1'
+        option localservice '1'
+        option ednspacket_max '1232'
+        option localuse '1'
+        option nohosts '1'
+        option filter_aaaa '1'
+        option nonegcache '1'
+        list server '127.0.0.1#5335'
+        option cachesize '10000'
+        option noresolv '1'
+        option serversfile '/etc/dnsmasq.d/accelerated-domains.china.conf'
+
+config dhcp 'lan'
+        option interface 'lan'
+        option dhcpv4 'server'
+        option ra_slaac '1'
+        list ra_flags 'managed-config'
+        list ra_flags 'other-config'
+        option ignore '1'
+        list dns '::1'
+
+config dhcp 'wan'
+        option interface 'wan'
+        option ignore '1'
+
+config odhcpd 'odhcpd'
+        option maindhcp '0'
+        option leasefile '/tmp/hosts/odhcpd'
+        option leasetrigger '/usr/sbin/odhcpd-update'
+        option loglevel '4'
+
+config domain
+        option name 'AR73M15.A7H3N4.lan'
+        option ip '192.168.177.233'
+
+config domain
+        option ip '192.168.177.1'
+        option name 'Xiaomi_Mi_Router_3G'
+EOF
+
+# system
+cat > /etc/config/system <<-"EOF"
+
+config system
+        option ttylogin '0'
+        option log_size '64'
+        option urandom_seed '0'
+        option zonename 'America/Los Angeles'
+        option timezone 'PST8PDT,M3.2.0,M11.1.0'
+        option log_proto 'udp'
+        option conloglevel '8'
+        option cronloglevel '8'
+        option hostname 'Bypass_Router'
+
+config timeserver 'ntp'
+        option enabled '1'
+        list server 'time.ustc.edu.cn'
+        list server 'cn.pool.ntp.org'
+        list server 'time.ustc.edu.cn'
+        list server 'cn.pool.ntp.org'
+EOF
+
+# Resizer mmcblk1p2
 resize2fs /dev/mmcblk1p2
 
+# Anti EXT4 Readonly
 sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2\nexit 0/g' package/base-files/files/etc/rc.local
+
+# Change root pw
+if [ ! -z $ROOT_PASSWORD ]; then
+  (echo "$ROOT_PASSWORD"; sleep 1; echo "$ROOT_PASSWORD") | passwd > /dev/null
+fi
+
+# ssh authorized key
+echo "$SSH_PUBLICKEY  > /etc/dropbear/authorized_keys > /dev/null
+
+# crontabs
+echo '* 4 * * 1  wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' >>/etc/crontabs/root
 
 exit 0
 
