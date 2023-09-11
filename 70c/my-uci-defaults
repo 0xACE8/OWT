@@ -65,6 +65,10 @@ uci commit firewall
 
 # network config
 
+uci delete network.lan.type
+uci delete network.lan.ip6assign
+uci commit network
+
 #uci batch <<EOF
 #delete network.lan.proto
 #network.globals=globals
