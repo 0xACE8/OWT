@@ -76,6 +76,6 @@ mkdir -p package/base-files/files/etc/dnsmasq.d
 wget --no-check-certificate -O package/base-files/files/etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
 
 # upgrade config
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/my-uci-defaults -O package/base-files/files/etc/uci-defaults/my-uci-defaults
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/OWT/main/70c/99-init-settings -O package/base-files/files/etc/uci-defaults/99-init-settings
 
 echo "Done!"
