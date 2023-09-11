@@ -66,16 +66,12 @@ EOF
 # network config
 
 uci batch <<EOF
-delete network.lan
+delete network.lan.proto
 network.globals=globals
 network.globals.packet_steering='1'
-network.lan=interface
-network.lan.ifname='eth0'
 network.lan.proto='static'
-network.lan.netmask='255.255.255.0'
 network.lan.dns='127.0.0.1'
 network.lan.gateway='192.168.177.1'
-network.lan.ipaddr='192.168.177.90'
 network.lan.metric='0'
 network.lan2=interface
 network.lan2.proto='static'
