@@ -25,6 +25,7 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 sed -i '/xiaomi.cn/d' package/lean/default-settings/files/zzz-default-settings
 sed -i 's/#echo/echo/g' package/lean/default-settings/files/zzz-default-settings
 sed -i "45 i\echo 'iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "46 i\echo 'ip6tables -t nat -I POSTROUTING -o eth0 -j MASQUERADE' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
 
 # Fix Turbo ACC
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
