@@ -31,6 +31,7 @@ uci set system.ntp.server='cn.ntp.org.cn' 'edu.ntp.org.cn' 'ntp.ntsc.ac.cn'
 uci set system.@system[0].zram_comp_algo='zstd'
 uci commit system
 
+#sed -i "/meson8b/d" /etc/opkg/distfeeds.conf
 sed -i "/ace/d" /etc/opkg/distfeeds.conf
 sed -i "/netspeedtest/d" /etc/opkg/distfeeds.conf
 sed -i "/p455w4ll/d" /etc/opkg/distfeeds.conf
