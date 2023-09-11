@@ -23,10 +23,10 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   # REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: threeb/feeds.conf.default
-  CONFIG_FILE: threeb/threeb+.config
-  DIY_P1_SH: threeb/f33ds.sh
-  DIY_P2_SH: threeb/threeb_custom.sh
+  FEEDS_CONF: 7hr33b/7hr33b.c0nf.d3f4ul7
+  CONFIG_FILE: 7hr33b/7hr33b.c0nf
+  DIY_P1_SH: 7hr33b/7hr33b.f33ds.sh
+  DIY_P2_SH: 7hr33b/7hr33b_cu570m1z3.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Taipei
