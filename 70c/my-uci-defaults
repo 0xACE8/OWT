@@ -6,6 +6,13 @@ resize2fs /dev/mmcblk1p2
 # Anti EXT4 Readonly
 sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2\nexit 0/g' /etc/rc.local
 
+# ttyd autologin
+sed -i 's/login/login -f root/g' /etc/config/ttyd
+
+# turboacc bbr_cca is on
+uci set turboacc.config.bbr_cca='1'
+uci commit turboacc
+
 # luci language
 #uci set luci.main.lang=zh_cn
 #uci commit luci
