@@ -17,103 +17,103 @@ uci commit firewall
 /etc/init.d/firewall
 
 # dnsmasq
-uci batch <<EOF
-delete dhcp.@dnsmasq
-dhcp.@dnsmasq[0]=dnsmasq
-dhcp.@dnsmasq[0].domainneeded='1'
-dhcp.@dnsmasq[0].localise_queries='1'
-dhcp.@dnsmasq[0].rebind_protection='1'
-dhcp.@dnsmasq[0].rebind_localhost='1'
-dhcp.@dnsmasq[0].local='/lan/'
-dhcp.@dnsmasq[0].domain='lan'
-dhcp.@dnsmasq[0].expandhosts='1'
-dhcp.@dnsmasq[0].leasefile='/tmp/dhcp.leases'
-dhcp.@dnsmasq[0].nonwildcard='1'
-dhcp.@dnsmasq[0].localservice='1'
-dhcp.@dnsmasq[0].ednspacket_max='1232'
-dhcp.@dnsmasq[0].localuse='1'
-dhcp.@dnsmasq[0].nohosts='1'
-dhcp.@dnsmasq[0].filter_aaaa='1'
-dhcp.@dnsmasq[0].nonegcache='1'
-dhcp.@dnsmasq[0].server='127.0.0.1#5335'
-dhcp.@dnsmasq[0].cachesize='10000'
-dhcp.@dnsmasq[0].noresolv='1'
-dhcp.@dnsmasq[0].serversfile='/etc/dnsmasq.d/accelerated-domains.china.conf'
-uci commit
-EOF
+#uci batch <<EOF
+#delete dhcp.@dnsmasq
+#dhcp.@dnsmasq[0]=dnsmasq
+#dhcp.@dnsmasq[0].domainneeded='1'
+#dhcp.@dnsmasq[0].localise_queries='1'
+#dhcp.@dnsmasq[0].rebind_protection='1'
+#dhcp.@dnsmasq[0].rebind_localhost='1'
+#dhcp.@dnsmasq[0].local='/lan/'
+#dhcp.@dnsmasq[0].domain='lan'
+#dhcp.@dnsmasq[0].expandhosts='1'
+#dhcp.@dnsmasq[0].leasefile='/tmp/dhcp.leases'
+#dhcp.@dnsmasq[0].nonwildcard='1'
+#dhcp.@dnsmasq[0].localservice='1'
+#dhcp.@dnsmasq[0].ednspacket_max='1232'
+#dhcp.@dnsmasq[0].localuse='1'
+#dhcp.@dnsmasq[0].nohosts='1'
+#dhcp.@dnsmasq[0].filter_aaaa='1'
+#dhcp.@dnsmasq[0].nonegcache='1'
+#dhcp.@dnsmasq[0].server='127.0.0.1#5335'
+#dhcp.@dnsmasq[0].cachesize='10000'
+#dhcp.@dnsmasq[0].noresolv='1'
+#dhcp.@dnsmasq[0].serversfile='/etc/dnsmasq.d/accelerated-domains.china.conf'
+#uci commit
+#EOF
 
-uci batch <<EOF
-delete dhcp.lan
-dhcp.lan=dhcp
-dhcp.lan.interface='lan'
-dhcp.lan.dhcpv4='server'
-dhcp.lan.ra_slaac='1'
-dhcp.lan.ra_flags='managed-config' 'other-config'
-dhcp.lan.ignore='1'
-dhcp.lan.dns='::1'
-uci commit
-EOF
+#uci batch <<EOF
+#delete dhcp.lan
+#dhcp.lan=dhcp
+#dhcp.lan.interface='lan'
+#dhcp.lan.dhcpv4='server'
+#dhcp.lan.ra_slaac='1'
+#dhcp.lan.ra_flags='managed-config' 'other-config'
+#dhcp.lan.ignore='1'
+#dhcp.lan.dns='::1'
+#uci commit
+#EOF
 
-uci batch <<EOF
-delete dhcp.wan
-dhcp.wan=dhcp
-dhcp.wan.interface='wan'
-dhcp.wan.ignore='1'
-uci commit
-EOF
-/etc/init.d/dnsmasq restart
+#uci batch <<EOF
+#delete dhcp.wan
+#dhcp.wan=dhcp
+#dhcp.wan.interface='wan'
+#dhcp.wan.ignore='1'
+#uci commit
+#EOF
+#/etc/init.d/dnsmasq restart
 
 # network config
 
-uci batch <<EOF
-delete network.lan.proto
-network.globals=globals
-network.globals.packet_steering='1'
-network.lan.proto='static'
-network.lan.dns='127.0.0.1'
-network.lan.gateway='192.168.177.1'
-network.lan.metric='0'
-network.lan2=interface
-network.lan2.proto='static'
-network.lan2.ifname='eth0'
-network.lan2.ipaddr='192.168.177.91'
-network.lan2.netmask='255.255.255.0'
-network.lan2.gateway='192.168.177.1'
-network.lan2.dns='127.0.0.1'
-network.lan2.force_link='0'
-network.lan2.metric='1'
-network.lan3=interface
-network.lan3.proto='static'
-network.lan3.ifname='eth0'
-network.lan3.ipaddr='192.168.177.92'
-network.lan3.netmask='255.255.255.0'
-network.lan3.gateway='192.168.177.1'
-network.lan3.force_link='0'
-network.lan3.metric='2'
-network.lan1_6=interface
-network.lan1_6.proto='dhcpv6'
-network.lan1_6.ifname='@lan'
-network.lan1_6.reqaddress='try'
-network.lan1_6.reqprefix='auto'
-network.lan1_6.peerdns='0'
-network.lan1_6.dns='::1'
-network.lan2_6=interface
-network.lan2_6.proto='dhcpv6'
-network.lan2_6.ifname='@lan2'
-network.lan2_6.reqaddress='try'
-network.lan2_6.reqprefix='auto'
-network.lan2_6.peerdns='0'
-network.lan2_6.dns='::1'
-network.lan3_6=interface
-network.lan3_6.proto='dhcpv6'
-network.lan3_6.ifname='@lan3'
-network.lan3_6.reqaddress='try'
-network.lan3_6.reqprefix='auto'
-network.lan3_6.peerdns='0'
-network.lan3_6.dns='::1'
-uci commit network
-EOF
-/etc/init.d/network restart
+#uci batch <<EOF
+#delete network.lan.proto
+#network.globals=globals
+#network.globals.packet_steering='1'
+#network.lan.proto='static'
+#network.lan.dns='127.0.0.1'
+#network.lan.gateway='192.168.177.1'
+#network.lan.metric='0'
+#network.lan2=interface
+#network.lan2.proto='static'
+#network.lan2.ifname='eth0'
+#network.lan2.ipaddr='192.168.177.91'
+#network.lan2.netmask='255.255.255.0'
+#network.lan2.gateway='192.168.177.1'
+#network.lan2.dns='127.0.0.1'
+#network.lan2.force_link='0'
+#network.lan2.metric='1'
+#network.lan3=interface
+#network.lan3.proto='static'
+#network.lan3.ifname='eth0'
+#network.lan3.ipaddr='192.168.177.92'
+#network.lan3.netmask='255.255.255.0'
+#network.lan3.gateway='192.168.177.1'
+#network.lan3.force_link='0'
+#network.lan3.metric='2'
+#network.lan1_6=interface
+#network.lan1_6.proto='dhcpv6'
+#network.lan1_6.ifname='@lan'
+#network.lan1_6.reqaddress='try'
+#network.lan1_6.reqprefix='auto'
+#network.lan1_6.peerdns='0'
+#network.lan1_6.dns='::1'
+#network.lan2_6=interface
+#network.lan2_6.proto='dhcpv6'
+#network.lan2_6.ifname='@lan2'
+#network.lan2_6.reqaddress='try'
+#network.lan2_6.reqprefix='auto'
+#network.lan2_6.peerdns='0'
+#network.lan2_6.dns='::1'
+#network.lan3_6=interface
+#network.lan3_6.proto='dhcpv6'
+#network.lan3_6.ifname='@lan3'
+#network.lan3_6.reqaddress='try'
+#network.lan3_6.reqprefix='auto'
+#network.lan3_6.peerdns='0'
+#network.lan3_6.dns='::1'
+#uci commit network
+#EOF
+#/etc/init.d/network restart
 
 # dnscrypt-proxy2 setting
 sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
