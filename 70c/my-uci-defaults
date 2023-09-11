@@ -13,6 +13,11 @@ sed -i 's/login/login -f root/g' /etc/config/ttyd
 uci set turboacc.config.bbr_cca='1'
 uci commit turboacc
 
+# netspeedtest homebox is on
+uci set netspeedtest.homebox.enabled='1'
+uci set netspeedtest.speedtestiperf3.enabled='1'
+uci commit netspeedtest
+
 # luci language
 #uci set luci.main.lang=zh_cn
 #uci commit luci
@@ -27,7 +32,8 @@ uci set system.@system[0].zram_comp_algo='zstd'
 uci commit system
 
 # firewall
-firewall.@defaults[0].syn_flood='0'
+uci set firewall.@defaults[0].syn_flood='0'
+uci set firewall.@defaults[0].forward='ACCEPT'
 uci set firewall.@zone[0].network='lan lan1_6 lan2 lan2_6 lan3 lan3_6'
 uci commit firewall
 /etc/init.d/firewall restart
