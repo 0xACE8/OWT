@@ -14,7 +14,10 @@ sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2
 #uci set system.@system[0].hostname=OneCloud
 #uci set system.@system[0].timezone=CST-4
 #uci set system.@system[0].zonename=America/Los_Angeles
-#uci commit system
+uci delete system.ntp.enable_server
+uci set system.ntp.server='cn.ntp.org.cn' 'edu.ntp.org.cn' 'ntp.ntsc.ac.cn'
+uci set system.@system[0].zram_comp_algo='zstd'
+uci commit system
 
 # firewall
 firewall.@defaults[0].syn_flood='0'
