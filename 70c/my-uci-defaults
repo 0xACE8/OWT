@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Resizer mmcblk1p2
+resize2fs /dev/mmcblk1p2
+
+# Anti EXT4 Readonly
+sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2\nexit 0/g' /etc/rc.local
+
 # luci language
 #uci set luci.main.lang=zh_cn
 #uci commit luci
@@ -95,6 +101,7 @@ uci commit network
 /etc/init.d/network restart
 
 # dnscrypt-proxy2 setting
+sed -i 's/START=18/START=99/g' /etc/init.d/dnscrypt-proxy
 sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 sed -i 's/ipv6_servers = false/ipv6_servers = true/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 sed -i 's/odoh_servers = false/odoh_servers = true/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
@@ -106,13 +113,7 @@ sed -i 's/127.0.0.1:8888/127.0.0.1:1101/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.t
 #sed -i 's/# http_proxy/http_proxy/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 #sed -i 's/# blocked_names_file/blocked_names_file/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 
-# Anti EXT4 Readonly
-sed -i 's/exit 0/mount -o remount,rw \/rom\nmount -o remount,rw \/dev\/mmcblk1p2\nexit 0/g' /etc/rc.local
-
 # crontabs
 echo '* 4 * * 1  wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' >> /etc/crontabs/root
-
-# Resizer mmcblk1p2
-resize2fs /dev/mmcblk1p2
 
 exit 0
