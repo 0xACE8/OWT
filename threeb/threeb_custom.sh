@@ -85,5 +85,5 @@ git clone https://github.com/0xACE8/dnscrypt-proxy2.git feeds/packages/net/dnscr
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
-wget https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/banner -O package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OWT/main/7hr33b/banner -O package/base-files/files/etc/banner
 
