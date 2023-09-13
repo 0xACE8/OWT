@@ -72,41 +72,41 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 sed -i 's/"终端"/"TTYD 终端"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
 # update gamespeeder
-git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-rm -rf feeds/packages/net/kcptun
-git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
-rm -rf feeds/luci/applications/luci-app-kcptun 
-git clone https://github.com/0xACE8/luci-app-kcptun feeds/luci/applications/luci-app-kcptun
-rm -rf feeds/packages/net/udp2raw
-git clone https://github.com/0xACE8/udp2raw.git feeds/packages/net/udp2raw
-rm -rf feeds/luci/applications/luci-app-udp2raw
-git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
-rm -rf feeds/ace8/luci-app-udpspeeder
-git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udpspeeder
+#git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+#rm -rf feeds/packages/net/kcptun
+#git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
+#rm -rf feeds/luci/applications/luci-app-kcptun 
+#git clone https://github.com/0xACE8/luci-app-kcptun feeds/luci/applications/luci-app-kcptun
+#rm -rf feeds/packages/net/udp2raw
+#git clone https://github.com/0xACE8/udp2raw.git feeds/packages/net/udp2raw
+#rm -rf feeds/luci/applications/luci-app-udp2raw
+#git clone https://github.com/0xACE8/luci-app-udp2raw feeds/luci/applications/luci-app-udp2raw
+#rm -rf feeds/ace8/luci-app-udpspeeder
+#git clone https://github.com/0xACE8/luci-app-udpspeeder feeds/ace8/luci-app-udpspeeder
 
 # turboacc
-#mkdir -p turboacc_tmp ./package/turboacc
-#cd turboacc_tmp 
-#git clone https://github.com/chenmozhijin/turboacc -b package
-#cd ../package/turboacc
-#git clone https://github.com/fullcone-nat-nftables/nft-fullcone
-#git clone https://github.com/chenmozhijin/turboacc
-#mv ./turboacc/luci-app-turboacc ./luci-app-turboacc
-#rm -rf ./turboacc
-#sed -i 's/Turbo ACC 网络加速/网络加速/g' luci-app-turboacc/po/zh-cn/turboacc.po
-#cd ../..
-#cp -f turboacc_tmp/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch ./target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
-#cp -f turboacc_tmp/turboacc/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch ./target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-#cp -f turboacc_tmp/turboacc/pending-5.15/613-netfilter_optional_tcp_window_check.patch ./target/linux/generic/pending-5.15/613-netfilter_optional_tcp_window_check.patch
-#rm -rf ./package/libs/libnftnl ./package/network/config/firewall4 ./package/network/utils/nftables
-#mkdir -p ./package/network/config/firewall4 ./package/libs/libnftnl ./package/network/utils/nftables
-#cp -r ./turboacc_tmp/turboacc/shortcut-fe ./package/turboacc
-#cp -RT ./turboacc_tmp/turboacc/firewall4-$(grep -o 'FIREWALL4_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/firewall4 ./package/network/config/firewall4
-#cp -RT ./turboacc_tmp/turboacc/libnftnl-$(grep -o 'LIBNFTNL_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/libnftnl ./package/libs/libnftnl
-#cp -RT ./turboacc_tmp/turboacc/nftables-$(grep -o 'NFTABLES_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/nftables ./package/network/utils/nftables
-#rm -rf turboacc_tmp
-#echo "# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set" >> target/linux/generic/config-5.15
-#echo "# CONFIG_SHORTCUT_FE is not set" >> target/linux/generic/config-5.15
+mkdir -p turboacc_tmp ./package/turboacc
+cd turboacc_tmp 
+git clone https://github.com/chenmozhijin/turboacc -b package
+cd ../package/turboacc
+git clone https://github.com/fullcone-nat-nftables/nft-fullcone
+git clone https://github.com/chenmozhijin/turboacc
+mv ./turboacc/luci-app-turboacc ./luci-app-turboacc
+rm -rf ./turboacc
+sed -i 's/Turbo ACC 网络加速/网络加速/g' luci-app-turboacc/po/zh-cn/turboacc.po
+cd ../..
+cp -f turboacc_tmp/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch ./target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
+cp -f turboacc_tmp/turboacc/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch ./target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+cp -f turboacc_tmp/turboacc/pending-5.15/613-netfilter_optional_tcp_window_check.patch ./target/linux/generic/pending-5.15/613-netfilter_optional_tcp_window_check.patch
+rm -rf ./package/libs/libnftnl ./package/network/config/firewall4 ./package/network/utils/nftables
+mkdir -p ./package/network/config/firewall4 ./package/libs/libnftnl ./package/network/utils/nftables
+cp -r ./turboacc_tmp/turboacc/shortcut-fe ./package/turboacc
+cp -RT ./turboacc_tmp/turboacc/firewall4-$(grep -o 'FIREWALL4_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/firewall4 ./package/network/config/firewall4
+cp -RT ./turboacc_tmp/turboacc/libnftnl-$(grep -o 'LIBNFTNL_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/libnftnl ./package/libs/libnftnl
+cp -RT ./turboacc_tmp/turboacc/nftables-$(grep -o 'NFTABLES_VERSION=.*' ./turboacc_tmp/turboacc/version | cut -d '=' -f 2)/nftables ./package/network/utils/nftables
+rm -rf turboacc_tmp
+echo "# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set" >> target/linux/generic/config-5.15
+echo "# CONFIG_SHORTCUT_FE is not set" >> target/linux/generic/config-5.15
 
 # Update dnscrypt-proxy2
 #rm -rf feeds/packages/net/dnscrypt-proxy2
@@ -133,24 +133,24 @@ sed -i 's/normal/dark/g' feeds/luci/applications/luci-app-argon-config/root/etc/
 sed -i 's/5e72e4/bc1142/g' feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 sed -i 's/483d8b/bc1142/g' feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/css/cascade.css
 
-rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/favicon.ico
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/favicon.ico"
-rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/argone.svg"
-rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/bg1.jpg"
-rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/*.png
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/android-icon-192x192.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-60x60.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-72x72.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-144x144.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-16x16.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-32x32.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-96x96.png"
-wget --no-check-certificate -O feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/ms-icon-144x144.png"
+rm -rf feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/favicon.ico
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/favicon.ico "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/favicon.ico"
+rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argon/img/argone.svg
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/img/argone.svg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/argone.svg"
+rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argon/img/bg1.jpg
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/img/bg1.jpg "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/img/bg1.jpg"
+rm -rf feeds/luci/themes/luci-theme-argone/htdocs/luci-static/argon/icon/*.png
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/android-icon-192x192.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/android-icon-192x192.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/apple-icon-60x60.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-60x60.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/apple-icon-72x72.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-72x72.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/apple-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/apple-icon-144x144.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/favicon-16x16.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-16x16.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/favicon-32x32.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-32x32.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/favicon-96x96.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/favicon-96x96.png"
+wget --no-check-certificate -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argone/icon/ms-icon-144x144.png "https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/argone/icon/ms-icon-144x144.png"
 
 #10. Change to my banner
 sudo rm package/base-files/files/etc/banner
-wget https://raw.githubusercontent.com/0xACE8/OWT/main/threeb/banner -O package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OWT/main/7hr33b/banner -O package/base-files/files/etc/banner
 
 echo "diy-part2.sh is done."
