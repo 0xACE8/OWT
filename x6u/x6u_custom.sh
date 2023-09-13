@@ -50,7 +50,10 @@ echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/
 
 #7. Update kcptun
 rm -rf feeds/packages/net/kcptun
-git clone https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
+git clone -b 20230214 https://github.com/0xACE8/kcptun.git feeds/packages/net/kcptun
+
+rm -rf feeds/passwall/hysteria
+git clone -b v1.3.5 https://github.com/0xACE8/hysteria.git feeds/passwall/hysteria
 
 #8. Update udpspeeder
 rm -rf feeds/packages/net/udpspeeder
