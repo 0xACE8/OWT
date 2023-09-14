@@ -20,11 +20,11 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: reg/reg.c0nf.d3f4ult
+  FEEDS_CONF: ttc/ttc.c0nf.d3f4ult
   CONFIG_FILE: ttc/ttc.conf
-  DIY_P1_SH: reg/reg.sh
+  DIY_P1_SH: ttc/f33d5.sh
   DIY_P2_SH: ttc/ttc_customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -77,6 +77,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
+        ./scripts/feeds install -a -p -f ace
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
