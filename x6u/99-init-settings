@@ -1,0 +1,130 @@
+#!/bin/sh
+
+# turboacc bbr_cca is on
+uci set turboacc.config.bbr_cca='1'
+uci commit turboacc
+
+# netspeedtest homebox is on
+uci set netspeedtest.homebox.enabled='1'
+uci set netspeedtest.speedtestiperf3.enabled='1'
+uci commit netspeedtest
+
+# luci language
+#uci set luci.main.lang=zh_cn
+#uci commit luci
+
+# system
+#uci set system.@system[0].hostname=OneCloud
+#uci set system.@system[0].timezone=CST-4
+#uci set system.@system[0].zonename=America/Los_Angeles
+#uci delete system.ntp.enable_server
+#uci set system.ntp.server='cn.ntp.org.cn' 'edu.ntp.org.cn' 'ntp.ntsc.ac.cn'
+#uci set system.@system[0].zram_comp_algo='zstd'
+#uci commit system
+
+sed -i "/ace/d" /etc/opkg/distfeeds.conf
+sed -i "/netspeedtest/d" /etc/opkg/distfeeds.conf
+sed -i "/small/d" /etc/opkg/distfeeds.conf
+
+# firewall
+uci set firewall.@defaults[0].syn_flood='0'
+uci set firewall.@defaults[0].forward='ACCEPT'
+uci set firewall.@zone[0].network='lan lan1_6 lan2 lan2_6 lan3 lan3_6'
+uci commit firewall
+/etc/init.d/firewall restart
+
+# dnsmasq
+uci batch <<EOF
+delete dhcp.@dnsmasq[0].boguspriv
+delete dhcp.@dnsmasq[0].filterwin2k
+delete dhcp.@dnsmasq[0].authoritative
+delete dhcp.@dnsmasq[0].readethers
+delete dhcp.@dnsmasq[0].resolvfile
+set dhcp.@dnsmasq[0].domainneeded='1'
+set dhcp.@dnsmasq[0].nonegcache='1'
+set dhcp.@dnsmasq[0].cachesize='10000'
+set dhcp.@dnsmasq[0].filter_aaaa='1'
+set dhcp.@dnsmasq[0].noresolv='1'
+set dhcp.@dnsmasq[0].nohosts='1'
+set dhcp.@dnsmasq[0].server='127.0.0.1#5335'
+set dhcp.@dnsmasq[0].serversfile='/etc/dnsmasq.d/accelerated-domains.china.conf'
+set dhcp.@dnsmasq[0].allservers='1'
+delete dhcp.lan.start
+delete dhcp.lan.limit
+delete dhcp.lan.leasetime
+delete dhcp.lan.dhcpv6
+delete dhcp.lan.ra
+set dhcp.lan.ignore='1'
+set dhcp.lan.dns='::1'
+EOF
+uci commit dhcp
+/etc/init.d/dnsmasq restart
+
+# network config
+uci batch <<EOF
+delete network.lan.type
+delete network.lan.ip6assign
+delete network.globals.ula_prefix
+set network.globals.packet_steering='1'
+set network.lan.dns='127.0.0.1'
+set network.lan.gateway='192.168.177.1'
+set network.lan.metric='0'
+set network.lan2=interface
+set network.lan2.proto='static'
+set network.lan2.ifname='eth0'
+set network.lan2.ipaddr='192.168.177.91'
+set network.lan2.netmask='255.255.255.0'
+set network.lan2.gateway='192.168.177.1'
+set network.lan2.dns='127.0.0.1'
+set network.lan2.force_link='0'
+set network.lan2.metric='1'
+set network.lan3=interface
+set network.lan3.proto='static'
+set network.lan3.ifname='eth0'
+set network.lan3.ipaddr='192.168.177.92'
+set network.lan3.netmask='255.255.255.0'
+set network.lan3.gateway='192.168.177.1'
+set network.lan3.force_link='0'
+set network.lan3.metric='2'
+set network.lan1_6=interface
+set network.lan1_6.proto='dhcpv6'
+set network.lan1_6.ifname='@lan'
+set network.lan1_6.reqaddress='try'
+set network.lan1_6.reqprefix='auto'
+set network.lan1_6.peerdns='0'
+set network.lan1_6.dns='::1'
+set network.lan2_6=interface
+set network.lan2_6.proto='dhcpv6'
+set network.lan2_6.ifname='@lan2'
+set network.lan2_6.reqaddress='try'
+set network.lan2_6.reqprefix='auto'
+set network.lan2_6.peerdns='0'
+set network.lan2_6.dns='::1'
+set network.lan3_6=interface
+set network.lan3_6.proto='dhcpv6'
+set network.lan3_6.ifname='@lan3'
+set network.lan3_6.reqaddress='try'
+set network.lan3_6.reqprefix='auto'
+set network.lan3_6.peerdns='0'
+set network.lan3_6.dns='::1'
+EOF
+uci commit network
+/etc/init.d/network restart
+
+# dnscrypt-proxy2 setting
+sed -i 's/START=18/START=99/g' /etc/init.d/dnscrypt-proxy
+sed -i 's/127.0.0.53:53/127.0.0.1:5335/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/ipv6_servers = false/ipv6_servers = true/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/odoh_servers = false/odoh_servers = true/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/http3 = false/http3 = true/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/cache_size = 4096/cache_size = 10240/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/127.0.0.1:9050/127.0.0.1:1070/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+sed -i 's/127.0.0.1:8888/127.0.0.1:1101/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+#sed -i 's/# proxy/proxy/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+#sed -i 's/# http_proxy/http_proxy/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+#sed -i 's/# blocked_names_file/blocked_names_file/g' /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
+
+# crontabs
+echo '* 4 * * 1  wget --no-check-certificate -O /etc/dnsmasq.d/accelerated-domains.china.conf "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"' >> /etc/crontabs/root
+
+exit 0
