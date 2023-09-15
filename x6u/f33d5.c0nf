@@ -3,5 +3,5 @@ src-git luci https://github.com/coolsnowwolf/luci
 src-git routing https://github.com/coolsnowwolf/routing
 src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git small https://github.com/kenzok8/small
-src-git ace https://github.com/0xACE8/ace-packages
+src-git ace https://github.com/0xACE8/4c3-p4ck463
 src-git netspeedtest https://github.com/sirpdboy/netspeedtest
