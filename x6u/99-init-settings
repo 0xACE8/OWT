@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# ttyd autologin
+sed -i 's/login -f root/login/g' /etc/config/ttyd
+
 # turboacc bbr_cca is on
 uci set turboacc.config.bbr_cca='1'
 uci commit turboacc
