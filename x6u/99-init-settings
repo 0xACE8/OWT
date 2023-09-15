@@ -25,9 +25,9 @@ uci commit netspeedtest
 #uci set system.@system[0].zram_comp_algo='zstd'
 #uci commit system
 
+sed -i "/small/d" /etc/opkg/distfeeds.conf
 sed -i "/ace/d" /etc/opkg/distfeeds.conf
 sed -i "/netspeedtest/d" /etc/opkg/distfeeds.conf
-sed -i "/small/d" /etc/opkg/distfeeds.conf
 
 # firewall
 uci set firewall.@defaults[0].syn_flood='0'
