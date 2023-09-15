@@ -23,6 +23,7 @@ sed -i 's/"#483d8b"/"#f9a602"/g' feeds/ace/luci-theme-argone/htdocs/luci-static/
 sed -i 's/5e72e4/6600cc/g' feeds/kenzo/luci-app-argone-config/root/etc/config/argone
 sed -i 's/483d8b/f9a602/g' feeds/kenzo/luci-app-argone-config/root/etc/config/argone
 sed -i '/\t\trevert_dns/d' feeds/luci/applications/luci-app-turboacc/root/etc/init.d/turboacc
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # Modify firewall
 sed -i '/xiaomi.cn/d' package/lean/default-settings/files/zzz-default-settings
