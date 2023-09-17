@@ -31,11 +31,8 @@ echo 'net.core.wmem_default=26214400' >>package/base-files/files/etc/sysctl.d/10
 echo 'net.core.netdev_max_backlog=2048' >>package/base-files/files/etc/sysctl.d/10-default.conf
 
 # Change luci list name
-#sed -i 's/"Design 主题设置"/"主题设置"/g' feeds/ace/luci-app-design-config/po/zh-cn/design-config.po
+sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-config/po/zh-cn/argone-config.po
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
-
-# Add Dashboard
-#wget -O package/luci-mod-dashboard https://github.com/immortalwrt/luci/tree/openwrt-21.02/modules/luci-mod-dashboard
 
 # Change to my banner
 #sudo rm package/emortal/default-settings/files/openwrt_banner
