@@ -12,9 +12,11 @@ sed -i "s/globals.ula_prefix='auto'/packet_steering='1'/g" package/base-files/fi
 # Modify Hostname
 sed -i 's/ImmortalWrt/Thunder TimeCloud/g' package/base-files/files/bin/config_generate 
 
+rm -rf feeds.conf.default
+
 #
 rm -rf package/emortal/default-settings/files/99-default-settings-chinese
-wget --no-check-certificate -O package/emortal/default-settings/files/99-default-settings-chinese ""
+wget --no-check-certificate -O package/emortal/default-settings/files/99-default-settings-chinese "https://raw.githubusercontent.com/0xACE8/OWT/main/ttc/99-default-settings-chinese"
 
 # Modify Password to emtry
 sed -i '/root::0:0:99999:7:::/d' package/emortal/default-settings/files/99-default-settings
