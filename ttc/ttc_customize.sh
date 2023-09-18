@@ -35,7 +35,7 @@ sed -i 's/"Argone 主题设置"/"主题设置"/g' feeds/ace/luci-app-argone-conf
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 #
-sed -i 's/5279eb1cb7555cf9292423cc9f672dc43e6e214b3411a6df26a6a1cfa59d88b7/73a2498dc95934c225d358707e7f7d060b5ce81aa45260ada09cbd15207d27d1/g' feeds/passwall_packages/ipt2socks/Makefile
+#sed -i 's/5279eb1cb7555cf9292423cc9f672dc43e6e214b3411a6df26a6a1cfa59d88b7/73a2498dc95934c225d358707e7f7d060b5ce81aa45260ada09cbd15207d27d1/g' feeds/passwall_packages/ipt2socks/Makefile
 
 # Change to my banner
 #sudo rm package/emortal/default-settings/files/openwrt_banner
