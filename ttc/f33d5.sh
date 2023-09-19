@@ -1,3 +1,5 @@
+rm -rf feeds.conf.default
+wget --no-check-certificate -O feeds.conf.default "https://raw.githubusercontent.com/0xACE8/OWT/main/ttc/feeds.conf.default"
 #sed -i '/packages/d' feeds.conf.default
 #sed -i '/luci/d' feeds.conf.default
 #sed -i '/routing/d' feeds.conf.default
