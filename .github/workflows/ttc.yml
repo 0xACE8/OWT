@@ -77,8 +77,6 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
-        ./scripts/feeds install -a -p -f ace
-        ./scripts/feeds install -a -p -f passwall_packages
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
