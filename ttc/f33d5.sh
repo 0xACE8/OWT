@@ -1,3 +1,7 @@
+sed -i '/packages/d' feeds.conf.default
+sed -i '/luci/d' feeds.conf.default
+sed -i '/routing/d' feeds.conf.default
+sed -i '/telephony/d' feeds.conf.default
 sed -i '$a src-git ace https://github.com/0xACE8/4c3-p4ck463' feeds.conf.default
 sed -i '$a src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' feeds.conf.default
 sed -i '$a src-git packages https://github.com/padavanonly/packages.git;openwrt-18.06' feeds.conf.default
